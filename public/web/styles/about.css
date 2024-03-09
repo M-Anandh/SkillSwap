@@ -1,0 +1,185 @@
+.contact-bg{
+    height: 40vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url(/web/assets/contact-bg.jpg);
+    background-position: 50% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    text-align: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.contact-bg h3{
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+.contact-bg h2{
+    font-size: 3rem;
+    text-transform: uppercase;
+    padding: 0.4rem 0;
+    letter-spacing: 4px;
+}
+.line div{
+    margin: 0 0.2rem;
+}
+.line div:nth-child(1),
+.line div:nth-child(3){
+    height: 3px;
+    width: 70px;
+    background:  #7e1aff;
+    ;
+    border-radius: 5px;
+}
+.line{
+    display: flex;
+    align-items: center;
+}
+.line div:nth-child(2){
+    width: 10px;
+    height: 10px;
+    background: #7e1aff;
+    border-radius: 50%;
+}
+.tit{
+    display: flex; 
+    justify-content: center; 
+    padding: 20px; 
+    font-size:20px; 
+    font-family: 'Tiro Devanagari Hindi', serif;
+}
+.tit-des{
+    display: flex;
+    justify-content: center; 
+    padding: 20px;
+    font-size:20px; 
+    font-family: 'Poppins', sans-serif;
+}
+
+.tit-img{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.tit-desc{
+    display: flex;
+     justify-content: center; 
+     padding: 20px; 
+     font-family: 'Times New Roman', Times, serif; 
+     font-size: 20px; 
+     font-size: medium; 
+     text-align: justify;
+      line-height: 1.5;
+}
+
+.mission{
+    display: flex;
+     justify-content: center; 
+     padding: 20px; 
+     font-size:20px;
+      font-family: 'Poppins', sans-serif;
+}
+
+.misvis{
+    display: flex;
+    justify-content: space-between;
+    line-height: 1.5;
+    padding: 50px;
+    padding-left: 132px;
+    /* border: 3px solid black; */
+    width: 1260px;
+    margin-left: 120px;
+    /* background-color: #aab6f6; */
+    border-radius: 5px;
+
+}
+
+.m1 img{
+    width: 128px;
+    height: 124px;
+    display: flex;
+    margin-left: 41px;
+    margin-bottom: 10px;
+
+}
+
+.teamimg{
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 150px;
+    padding-right: 150px;
+    padding-left: 150px;
+    padding-top: 50px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.teamr1 img{
+    height: 250px;
+    width: 200px;
+    transition: transform 0.3s ease;
+}
+.teamr1 img:hover {
+    transform: scale(1.1); 
+}
+.na{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+    font-weight: bold;
+}
+.role{
+    color: #7e1aff;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+@media only screen and (max-width: 768px) {
+    .misvis {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .teamimg {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .teamr1 img {
+        height: 150px;
+        width: 120px;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .misvis {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .teamimg {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .teamr1 img {
+        height: 150px;
+        width: 120px;
+    }
+}
+
+.m1{
+    border: 3px solid rgb(65, 3, 3);
+    padding: 20px;
+    border-radius: 10px;
+    /* background-color: #cddaed; */
+
+}
+
+#preloader{
+    background: #000 url(/web/assets/giphy.gif) no-repeat center;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}

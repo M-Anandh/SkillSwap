@@ -1,0 +1,120 @@
+.contact-bg{
+    height: 40vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url(/web/assets/contact-bg.jpg);
+    background-position: 50% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    text-align: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.contact-bg h3{
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+.contact-bg h2{
+    font-size: 3rem;
+    text-transform: uppercase;
+    padding: 0.4rem 0;
+    letter-spacing: 4px;
+}
+.line div{
+    margin: 0 0.2rem;
+}
+.line div:nth-child(1),
+.line div:nth-child(3){
+    height: 3px;
+    width: 70px;
+    background:  #7e1aff;
+    ;
+    border-radius: 5px;
+}
+.line{
+    display: flex;
+    align-items: center;
+}
+.line div:nth-child(2){
+    width: 10px;
+    height: 10px;
+    background: #7e1aff;
+    border-radius: 50%;
+}
+
+.contain1 {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+.containcontent {
+    flex: 1;
+    max-width: 60%;
+    text-align: justify;
+    margin-left: 250px;
+}
+
+.contaiimg {
+    flex: 1;
+    max-width: 40%;
+}
+
+.contaiimg img {
+    width: 50%;
+    max-width: 100%;
+    height: auto;
+    max-height: 200px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.contaiimg img:hover {
+    transform: scale(1.1);
+}
+
+
+.containtitle {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 30px;
+}
+
+.sem{
+    font-family: 'Inter', sans-serif;
+}
+.contain1 p{
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .contain1 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .containcontent,
+    .contaiimg {
+        max-width: 100%;
+        margin: 10px 0; /* Adjust margin for better spacing on small screens */
+    }
+
+    .containcontent {
+        margin-left: 0; /* Remove left margin on small screens */
+    }
+}
+
+#preloader{
+    background: #000 url(/web/assets/giphy.gif) no-repeat center;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}
+
+
+
+/* Add this JavaScript code to add the fade-in class when the image is in the viewport *
