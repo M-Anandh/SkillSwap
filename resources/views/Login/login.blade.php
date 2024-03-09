@@ -170,7 +170,7 @@
     </form>
   </div>
 
-  <!-- <div class="wrapper" id="creator-form">
+  <div class="wrapper" id="creator-form">
     <form action="login.php" method="post">
       <h2>Creator Login</h2>
       <div class="input-field">
@@ -193,7 +193,7 @@
         <p>Don't have an account? <a href="creatorred">Register</a></p>
       </div>
     </form>
-  </div> -->
+  </div>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const creatorForm = document.getElementById("creator-form");
