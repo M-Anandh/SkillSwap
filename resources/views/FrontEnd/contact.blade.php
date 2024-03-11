@@ -41,7 +41,7 @@
         <li><a href="/index/about">About</a></li>
         <li><a href="/index/contact">Contact</a></li>
         <li class="dropdown">
-          <a href="#" class="dropbtn" id="glow">JOIN US</a>
+          <a href="{{ route('login') }}" class="dropbtn" id="glow">JOIN US</a>
           <!-- <div class="dropdown-content">
             <a href="#" id="sub">Login</a>
             <a href="#" id="sub">Register</a>

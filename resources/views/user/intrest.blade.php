@@ -259,6 +259,25 @@
                 transform: translateY(0);
             }
         }
+        @media only screen and (max-width: 600px) {
+        .container {
+            background-image: none; 
+            padding: 10px; 
+        }
+
+        .user-box {
+            width: 100%; 
+            font-size: 14px;
+        }
+
+        .welcome-container h2 {
+            font-size: 24px; 
+        }
+
+        .welcome-container p {
+            font-size: 14px; 
+        }
+    }
     </style>
 </head>
 

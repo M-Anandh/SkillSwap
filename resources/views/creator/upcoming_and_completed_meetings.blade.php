@@ -122,6 +122,19 @@
             background-color: #fff;
             /* White background for odd rows */
         }
+
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+            .meeting-columns {
+                flex-direction: column;
+            }
+
+            .meeting-column {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+
+       
     </style>
     <!--<title>Dashboard Sidebar Menu</title>-->
 </head>
@@ -247,67 +260,67 @@
 
     <section class="home">
         <!-- <div class="text"> -->
-            <div class="dashboard-container" style="    font-family: 'Times New Roman', Times, serif">
-                <div class="header">
-                    <h1></h1>
-                    <div class="user-info">
-                        <p>{{ Auth::user()->name }}</p>
-                    </div>
-                </div>
-
-                <div class="meeting-columns">
-                    <div class="meeting-column upcoming-meetings">
-                        <h2>Upcoming Meetings</h2>
-                        <table class="meeting-table">
-                            <thead>
-                                <tr>
-                                    <th>Date</th>
-                                    <th>User</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($upcomingMeetings as $meeting)
-                                <tr>
-                                    <td>{{ $meeting->datetime }}</td>
-                                    <td>{{ $meeting->user->name }}</td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div class="meeting-column completed-meetings">
-                        <h2>Completed Meetings</h2>
-                        <table class="meeting-table">
-                            <thead>
-                                <tr>
-                                    <th>Date</th>
-                                    <th>User</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($completedMeetings as $index => $meeting)
-                                <tr class="{{ $index % 2 == 0 ? 'even-row' : 'odd-row' }}">
-                                    <td>{{ $meeting->datetime }}</td>
-                                    <td>{{ $meeting->user->name }}</td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                        <p style="padding-top: 10px;">Number of Completed Meetings: {{ $completedMeetingsCount }}</p>
-
-                    </div>
-                </div>
-
-
-
-                <div class="activity-graph">
-                    <h2>Last 7 Days Activity</h2>
-                    <div class="chart-container">
-                        <canvas id="activityChart"></canvas>
-                    </div>
+        <div class="dashboard-container" style="    font-family: 'Times New Roman', Times, serif">
+            <div class="header">
+                <h1></h1>
+                <div class="user-info">
+                    <p>{{ Auth::user()->name }}</p>
                 </div>
             </div>
+
+            <div class="meeting-columns">
+                <div class="meeting-column upcoming-meetings">
+                    <h2>Upcoming Meetings</h2>
+                    <table class="meeting-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>User</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($upcomingMeetings as $meeting)
+                            <tr>
+                                <td>{{ $meeting->datetime }}</td>
+                                <td>{{ $meeting->user->name }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="meeting-column completed-meetings">
+                    <h2>Completed Meetings</h2>
+                    <table class="meeting-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>User</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($completedMeetings as $index => $meeting)
+                            <tr class="{{ $index % 2 == 0 ? 'even-row' : 'odd-row' }}">
+                                <td>{{ $meeting->datetime }}</td>
+                                <td>{{ $meeting->user->name }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    <p style="padding-top: 10px;">Number of Completed Meetings: {{ $completedMeetingsCount }}</p>
+
+                </div>
+            </div>
+
+
+
+            <div class="activity-graph">
+                <h2>Last 7 Days Activity</h2>
+                <div class="chart-container">
+                    <canvas id="activityChart"></canvas>
+                </div>
+            </div>
+        </div>
         <!-- </div> -->
     </section>
 

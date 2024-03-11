@@ -17,20 +17,32 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('web/assets/logo1.jpg')}}">
     <title>SKillSwap|Admin</title>
     <style>
-    table {
-        border-collapse: collapse;
+    .table {
         width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
     }
 
-    th, td {
-        border: 2px solid black;
-        padding: 8px;
+    .table th, .table td {
+        padding: 12px;
         text-align: left;
+        border: 1px solid #ddd;
     }
 
-    th {
+    .table th {
+        background-color: #2196F3;
+        color: #fff;
+    }
+
+    .table tr:nth-child(even) {
         background-color: #f2f2f2;
     }
+
+    .table tr:nth-child(odd) {
+        background-color: #fff;
+    }
+
+
 </style>
 
     <!--<title>Dashboard Sidebar Menu</title>--> 
@@ -175,12 +187,11 @@
         <tbody>
             @foreach($meetings as $meeting)
                 <tr>
-                    <td style="background-color: #e0f7fa;">{{ $meeting->id }}</td>
-                    <td style="background-color: #ffcc80;">{{ $meeting->user->name }}</td>
-                    <td style="background-color: #ed9fe7;">{{ $meeting->bookedUser->name }}</td>
-                    <td style="background-color: #b2dfdb;">{{ $meeting->datetime }}</td>
-                    <td style="background-color: #c5cae9;">{{ $meeting->updated_at->format('Y-m-d H:i:s') }}</td>
-                    <!-- Add more cells for additional columns -->
+                    <td >{{ $meeting->id }}</td>
+                    <td >{{ $meeting->user->name }}</td>
+                    <td >{{ $meeting->bookedUser->name }}</td>
+                    <td >{{ $meeting->datetime }}</td>
+                    <td >{{ $meeting->updated_at->format('Y-m-d H:i:s') }}</td>
                 </tr>
             @endforeach
         </tbody>

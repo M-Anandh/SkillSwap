@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- Coding by CodingLab | www.codinglabweb.com -->
 <html lang="en">
 
 <head>
@@ -20,7 +19,7 @@
     <style>
        body {
     font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa; /* Lighter background color */
+    background-color: #f8f9fa;
     margin: 0;
     padding: 0;
 }
@@ -31,79 +30,73 @@
     padding: 20px;
 }
 
-/* Form Styles */
 form {
     margin-bottom: 20px;
 }
 
 input[type="text"] {
     padding: 10px;
-    width: 300px; /* Extend the search bar */
+    width: 300px; 
 }
 
 button {
     padding: 10px;
-    background-color: #3498db; /* Different color for the search button */
+    background-color: #3498db; 
     color: white;
     border: none;
     cursor: pointer;
 }
 
-/* Users Container Styles */
 .users-container {
     display: flex;
     flex-wrap: wrap;
 }
 
 .user-box {
-    background-color: #ecf0f1; /* Different color for each user box */
+    background-color: #ecf0f1;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 10px;
     padding: 20px;
-    text-align: center; /* Center the contents */
-    width: calc(25% - 20px); /* Adjust the width for a 4-card layout with margin */
+    text-align: center; 
+    width: calc(25% - 20px); 
     box-sizing: border-box; 
 }
 
 /* Profile Image Styles */
 .user-box img {
-    width: 100px; /* Set a fixed width */
-    height: 100px; /* Set a fixed height */
+    width: 100px; 
+    height: 100px; 
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 10px;
 }
 
-/* Profile Details Styles */
 .user-box h2 {
     font-size: 1.5rem;
     margin-bottom: 10px;
-    color: #695CFE; /* Set Name color */
+    color: #695CFE; 
 }
 
 .user-box p {
     margin: 5px 0;
-    color: #FF5733; /* Set Skills color */
+    color: #FF5733; 
 }
 
-/* Profile Link Styles */
 .user-box a {
     display: block;
     margin-top: 10px;
     text-decoration: none;
-    color: #695CFE; /* Different color for the profile link */
+    color: #695CFE; 
 }
 
 .user-box a:hover {
     text-decoration: underline;
 }
 
-/* Form Styles within User Box */
 .form-group {
     margin-top: 15px;
 }
 
-/* Meeting Input Styles */
 .form-control {
     width: 100%;
     padding: 10px;
@@ -113,16 +106,34 @@ button {
     border-radius: 4px;
 }
 
-/* Button Styles within User Box */
 .btn-success {
-    background-color: #2ecc71; /* Different color for the 'Book Meeting' button */
+    background-color: #2ecc71;
     color: white;
     padding: 10px;
     border: none;
     cursor: pointer;
-    margin-top: 15px; /* Add margin to center the button */
+    margin-top: 15px; 
 }
 
+@media only screen and (max-width: 767px) {
+        .user-box {
+            width: 100%; 
+        }
+    }
+
+   
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+        .user-box {
+            width: calc(33.33% - 20px); 
+        }
+    }
+
+    /* Large Screens */
+    @media only screen and (min-width: 992px) and (max-width: 1199px) {
+        .user-box {
+            width: calc(25% - 20px); 
+        }
+    }
     </style>
 
 </head>
@@ -316,7 +327,6 @@ button {
         });
     </script>
     <script>
-    // Get the current date and time in ISO format
     var now = new Date();
     var year = now.getFullYear();
     var month = (now.getMonth() + 1).toString().padStart(2, '0');
@@ -325,7 +335,6 @@ button {
     var minutes = now.getMinutes().toString().padStart(2, '0');
     var currentDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
 
-    // Set the min attribute of the input to the current date and time
     document.getElementById('meeting_datetime').min = currentDateTime;
   </script>
 

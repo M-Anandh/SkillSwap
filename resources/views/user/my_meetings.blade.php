@@ -64,7 +64,6 @@
 
 
 <!DOCTYPE html>
-  <!-- Coding by CodingLab | www.codinglabweb.com -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -215,7 +214,7 @@
 <thead>
     <tr>
         <th>Date and Time</th>
-        <th>Booked User</th>
+        <th>Booked Creator</th>
         <th>Actions</th>
     </tr>
 </thead>
@@ -267,10 +266,6 @@
         </tr>
     @endforeach
 </tbody>
-
-
-    <!-- Place this script within your HTML file, preferably at the end of the body -->
-    
 
 
 </tbody>
