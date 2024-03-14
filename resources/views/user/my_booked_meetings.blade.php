@@ -17,30 +17,60 @@
     <title>SKillSwap|Profile</title>
     <!--<title>Dashboard Sidebar Menu</title>-->
     <style>
-    .meeting-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px; /* Adjust as needed */
-    }
+        .meeting-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            /* Adjust as needed */
+        }
 
-    .meeting-table th, .meeting-table td {
-        border: 1px solid #dddddd;
-        padding: 8px;
-        text-align: left;
-    }
+        .meeting-table th,
+        .meeting-table td {
+            border: 1px solid #dddddd;
+            padding: 8px;
+            text-align: left;
+        }
 
-    .even-row {
-        background-color: #f2f2f2;
-    }
+        .even-row {
+            background-color: #f2f2f2;
+        }
 
-    .odd-row {
-        background-color: #ffffff;
-    }
+        .odd-row {
+            background-color: #ffffff;
+        }
 
-    .meeting-box {
-        margin-bottom: 10px; /* Adjust as needed */
-    }
-</style>
+        .meeting-box {
+            margin-bottom: 10px;
+            /* Adjust as needed */
+        }
+
+        .btn-success {
+            background-color: #007bff;
+            /* Change button color */
+            color: #ffffff;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-success:hover {
+            background-color: #0056b3;
+            /* Change button hover color */
+        }
+
+        input[type="datetime-local"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+    </style>
 
 </head>
 
@@ -168,21 +198,51 @@
         <div class="text">
             <!-- resources/views/user/my_booked_meetings.blade.php -->
             <table class="meeting-table">
-    <thead>
-        <tr>
-            <th>Date and Time</th>
-            <th>Booked by</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach($bookedMeetings as $index => $meeting)
-            <tr class="{{ $index % 2 == 0 ? 'even-row' : 'odd-row' }}">
-                <td>{{ $meeting->datetime }}</td>
-                <td>{{ $meeting->user->name }}</td>
-            </tr>
-        @endforeach
-    </tbody>
-</table>
+                <thead>
+                    <tr>
+                        <th>Date and Time</th>
+                        <th>Booked by</th>
+                        <th>Action</th> <!-- Add a new column for the update button -->
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($bookedMeetings as $index => $meeting)
+                    <tr class="{{ $index % 2 == 0 ? 'even-row' : 'odd-row' }}">
+                        <td>{{ $meeting->datetime }}</td>
+                        <td>{{ $meeting->user->name }}</td>
+                        <td>
+                            @if ($meeting->datetime >= now() && !$meeting->completed)
+                            <form method="post" action="{{ route('user.meeting.update', $meeting->id) }}" onsubmit="return validateMeetingDateTime(this)">
+                                @csrf
+                                <div class="form-group">
+                                    <input type="datetime-local" class="form-control" name="new_datetime" required>
+                                </div>
+                                <button type="submit" class="btn btn-success">Update</button> <!-- Change button text -->
+                            </form>
+                            <script>
+                                function validateMeetingDateTime(form) {
+                                    const input = form.querySelector('input[name="new_datetime"]');
+                                    const selectedDatetime = new Date(input.value);
+                                    const now = new Date();
+                                    const oneHourLater = new Date(now.getTime() + (1 * 60 * 60 * 1000));
+
+                                    if (selectedDatetime < oneHourLater) {
+                                        alert('Please select a date and time at least one hour later than the current date and time.');
+                                        return false;
+                                    }
+
+                                    return true; // Allow form submission
+                                }
+                            </script>
+
+                            <br>
+
+                            @endif
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+
 
         </div>
     </section>
