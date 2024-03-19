@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- Coding by CodingLab | www.codinglabweb.com -->
 <html lang="en">
 
 <head>
@@ -7,17 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!----======== CSS ======== -->
 
     <link rel="stylesheet" href="{{ asset('web/styles/sidebar.css')}}">
     <link rel="stylesheet" href="{{ asset('web/styles/profile.css')}}">
 
-    <!----===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 
     <link rel="icon" type="image/x-icon" href="{{ asset('web/assets/logo1.jpg')}}">
     <title>SKillSwap|Profile</title>
-    <!--<title>Dashboard Sidebar Menu</title>-->
 </head>
 
 <body>
@@ -81,12 +77,7 @@
                         </a>
                     </li>
 
-                    <!-- <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-notification bx-rotate-90-alt icon'></i>
-                            <span class="text nav-text">Notfiy</span>
-                        </a>
-                    </li> -->
+                    
 
                     <li class="nav-link">
                         <a href="{{ route('creator.details') }}">
@@ -108,31 +99,18 @@
 
                     <script>
                         document.getElementById('logout-link').addEventListener('click', function(event) {
-                            event.preventDefault(); // Prevent the default link behavior
-
-                            // Assuming you have a hidden form with the ID 'logout-form'
+                            event.preventDefault(); 
                             document.getElementById('logout-form').submit();
                         });
                     </script>
 
-                    <!-- Include the CSRF token in a hidden form -->
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
 
                 </li>
 
-                <!-- <li class="mode">
-                    <div class="sun-moon">
-                        <i class='bx bx-moon icon moon'></i>
-                        <i class='bx bx-sun icon sun'></i>
-                    </div>
-                    <span class="mode-text text">Dark mode</span>
-
-                    <div class="toggle-switch">
-                        <span class="switch"></span>
-                    </div>
-                </li> -->
+               
 
             </div>
         </div>
@@ -149,10 +127,7 @@
     <form method="post" action="{{ route('profile.update') }}">
         @csrf
 
-        <!-- <div class="form-group">
-            <label class="form-label">G-Meet Link</label>
-            <input type="text" class="form-control" name="link" value="{{ $user->link }}">
-        </div> -->
+       
 
         <div class="form-group">
             <label class="form-label">G-Meet Link</label>

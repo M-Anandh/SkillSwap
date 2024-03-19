@@ -6,14 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!----======== CSS ======== -->
 
     <link rel="stylesheet" href="{{ asset('web/styles/sidebar.css')}}">
 
-    <!----===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 
-    <!--<title>Dashboard Sidebar Menu</title>-->
     <link rel="icon" type="image/x-icon" href="{{ asset('web/assets/logo1.jpg')}}">
     <title>SKillSwap|Search Creator</title>
     <style>
@@ -62,7 +59,6 @@ button {
     box-sizing: border-box; 
 }
 
-/* Profile Image Styles */
 .user-box img {
     width: 100px; 
     height: 100px; 
@@ -128,7 +124,6 @@ button {
         }
     }
 
-    /* Large Screens */
     @media only screen and (min-width: 992px) and (max-width: 1199px) {
         .user-box {
             width: calc(25% - 20px); 
@@ -207,7 +202,7 @@ button {
                     </li>
 
                     <li class="nav-link">
-                        <a href="/user/announcements">
+                        <a href="{{ route('announcements.without.delete') }}" >
                             <i class='bx bx-notification bx-rotate-90-alt icon'></i>
                             <span class="text nav-text">Announcements</span>
                         </a>
@@ -233,31 +228,19 @@ button {
 
                     <script>
                         document.getElementById('logout-link').addEventListener('click', function(event) {
-                            event.preventDefault(); // Prevent the default link behavior
+                            event.preventDefault(); 
 
-                            // Assuming you have a hidden form with the ID 'logout-form'
                             document.getElementById('logout-form').submit();
                         });
                     </script>
 
-                    <!-- Include the CSRF token in a hidden form -->
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
 
                 </li>
 
-                <!-- <li class="mode">
-                    <div class="sun-moon">
-                        <i class='bx bx-moon icon moon'></i>
-                        <i class='bx bx-sun icon sun'></i>
-                    </div>
-                    <span class="mode-text text">Dark mode</span>
-
-                    <div class="toggle-switch">
-                        <span class="switch"></span>
-                    </div>
-                </li> -->
+                
 
             </div>
         </div>

@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController1;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AnnouncementController;
+
 // use App\Http\Controllers\UserMeetingController;
 
 /*
@@ -172,17 +174,7 @@ Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.in
 Route::get('/feedback/create', [FeedbackController::class, 'create'])->name('feedback.create');
 Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
 
-Route::match(['get', 'post'], '/admin/announce', function () {
-    return view('admin.add_announcement');
-})->middleware('auth');
 
-Route::match(['get', 'post'], '/user/announcements', function () {
-    return view('user.annoucements');
-})->middleware('auth');
-
-Route::match(['get', 'post'], '/creator/announcements', function () {
-    return view('creator.postannounce');
-})->middleware('auth');
 
 
 use App\Http\Controllers\ProfileController;
@@ -207,3 +199,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/upcoming-and-completed-meetings', [UserMeetingController::class, 'upcomingAndCompletedMeetings'])->name('user.dash');
 
 });
+
+
+
+Route::get('/annouce', [AnnouncementController::class, 'index'])->name('announcements.index');
+Route::post('/announcements', [AnnouncementController::class, 'store'])->name('announcements.store');
+Route::delete('/announcements/{announcement}', [AnnouncementController::class, 'destroy'])->name('announcements.destroy');
+Route::get('/userannounce', [AnnouncementController::class, 'indexWithoutDelete'])
+    ->name('announcements.without.delete');

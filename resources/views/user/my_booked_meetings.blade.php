@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Coding by CodingLab | www.codinglabweb.com -->
+
 <html lang="en">
 
 <head>
@@ -7,21 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!----======== CSS ======== -->
 
     <link rel="stylesheet" href="{{ asset('web/styles/sidebar.css')}}">
 
-    <!----===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" type="image/x-icon" href="{{ asset('web/assets/logo1.jpg')}}">
     <title>SKillSwap|Profile</title>
-    <!--<title>Dashboard Sidebar Menu</title>-->
     <style>
         .meeting-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
-            /* Adjust as needed */
         }
 
         .meeting-table th,
@@ -41,12 +37,10 @@
 
         .meeting-box {
             margin-bottom: 10px;
-            /* Adjust as needed */
         }
 
         .btn-success {
             background-color: #007bff;
-            /* Change button color */
             color: #ffffff;
             border: none;
             padding: 8px 16px;
@@ -58,7 +52,6 @@
 
         .btn-success:hover {
             background-color: #0056b3;
-            /* Change button hover color */
         }
 
         input[type="datetime-local"] {
@@ -135,12 +128,7 @@
                         </a>
                     </li>
 
-                    <!-- <li class="nav-link">
-                        <a href="/creator/announcements">
-                            <i class='bx bx-notification bx-rotate-90-alt icon'></i>
-                            <span class="text nav-text">Notfiy</span>
-                        </a>
-                    </li> -->
+                 
 
                     <li class="nav-link">
                         <a href="{{ route('creator.details') }}">
@@ -163,31 +151,19 @@
 
                     <script>
                         document.getElementById('logout-link').addEventListener('click', function(event) {
-                            event.preventDefault(); // Prevent the default link behavior
+                            event.preventDefault(); 
 
-                            // Assuming you have a hidden form with the ID 'logout-form'
                             document.getElementById('logout-form').submit();
                         });
                     </script>
 
-                    <!-- Include the CSRF token in a hidden form -->
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
 
                 </li>
 
-                <!-- <li class="mode">
-                    <div class="sun-moon">
-                        <i class='bx bx-moon icon moon'></i>
-                        <i class='bx bx-sun icon sun'></i>
-                    </div>
-                    <span class="mode-text text">Dark mode</span>
-
-                    <div class="toggle-switch">
-                        <span class="switch"></span>
-                    </div>
-                </li> -->
+            
 
             </div>
         </div>
@@ -196,13 +172,12 @@
 
     <section class="home">
         <div class="text">
-            <!-- resources/views/user/my_booked_meetings.blade.php -->
             <table class="meeting-table">
                 <thead>
                     <tr>
                         <th>Date and Time</th>
                         <th>Booked by</th>
-                        <th>Action</th> <!-- Add a new column for the update button -->
+                        <th>Action</th> 
                     </tr>
                 </thead>
                 <tbody>
@@ -217,7 +192,7 @@
                                 <div class="form-group">
                                     <input type="datetime-local" class="form-control" name="new_datetime" required>
                                 </div>
-                                <button type="submit" class="btn btn-success">Update</button> <!-- Change button text -->
+                                <button type="submit" class="btn btn-success">Update</button> 
                             </form>
                             <script>
                                 function validateMeetingDateTime(form) {
@@ -231,7 +206,7 @@
                                         return false;
                                     }
 
-                                    return true; // Allow form submission
+                                    return true;
                                 }
                             </script>
 

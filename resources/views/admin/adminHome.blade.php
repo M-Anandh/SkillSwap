@@ -1,22 +1,19 @@
 <!DOCTYPE html>
-  <!-- Coding by CodingLab | www.codinglabweb.com -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!----======== CSS ======== -->
     
     <link rel="stylesheet" href="{{ asset('web/styles/sidebar.css')}}">
 
     <link rel="stylesheet" href="sidebar.css">
     
-    <!----===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" type="image/x-icon" href="{{ asset('web/assets/logo1.jpg')}}">
     <title>SKillSwap|Admin</title>
-    <!--<title>Dashboard Sidebar Menu</title>--> 
+
 </head>
 <body>
     <nav class="sidebar">
@@ -110,14 +107,12 @@
 
 <script>
     document.getElementById('logout-link').addEventListener('click', function (event) {
-        event.preventDefault(); // Prevent the default link behavior
+        event.preventDefault(); 
 
-        // Assuming you have a hidden form with the ID 'logout-form'
         document.getElementById('logout-form').submit();
     });
 </script>
 
-<!-- Include the CSRF token in a hidden form -->
 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
     @csrf
 </form>

@@ -6,11 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!----======== CSS ======== -->
 
     <link rel="stylesheet" href="{{ asset('web/styles/sidebar.css')}}">
 
-    <!----===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" type="image/x-icon" href="{{ asset('web/assets/logo1.jpg')}}">
     <title>SKillSwap|HOME</title>
@@ -19,19 +17,16 @@
             margin: 0;
             font-family: 'Roboto', sans-serif;
             background-color: #f5f5f5;
-            /* Light background color */
         }
 
         .container {
             background-image: url("{{ asset('web/assets/userdash.jpg') }}");
-            /* Replace with the actual path to your background image */
             background-size: cover;
             background-position: center;
             color: #fff;
             padding: 20px;
             animation: fadeIn 3s ease-in-out;
             height: 100vh;
-            /* Apply a slower fade-in animation to the container */
         }
 
         .welcome-container,
@@ -39,14 +34,12 @@
             margin-top: 20px;
             text-align: center;
 
-            /* Center-align the content */
         }
 
         .user-box-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
-            /* Adjust as needed */
         }
 
         .user-box {
@@ -137,13 +130,11 @@
             animation: slideInContent 3s ease-in-out 1s;
         }
 
-        /* Button styles */
         .btn {
             display: inline-block;
             padding: 10px 20px;
             border-radius: 5px;
             transition: background-color 0.3s ease-in-out;
-            /* Add a smooth transition effect */
         }
 
         .btn:hover {
@@ -152,18 +143,14 @@
 
         .btn-profile {
             color: #fff;
-            /* White text color */
             text-decoration: none;
             background-color: #e74c3c;
-            /* Red button color for Profile Link */
         }
 
         .btn-book-meeting {
             color: #fff;
-            /* White text color */
             text-decoration: none;
             background-color: #2ecc71;
-            /* Green button color for Book Meeting */
         }
 
         .btn-book-meeting:hover {
@@ -173,32 +160,24 @@
 
         .btn:hover {
             filter: brightness(90%);
-            /* Darken the button on hover */
         }
 
-        /* Additional styling for the meeting input field */
         .form-group {
             margin-top: 10px;
-            /* Top margin */
             margin-bottom: 10px;
-            /* Bottom margin */
         }
 
-        /* Keyframes for color change animation */
         @keyframes colorChange {
             0% {
                 border-color: #3498db;
-                /* Initial color */
             }
 
             50% {
                 border-color: #e74c3c;
-                /* Midpoint color */
             }
 
             100% {
                 border-color: #2ecc71;
-                /* Final color */
             }
         }
 
@@ -350,7 +329,7 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="/user/announcements">
+                        <a href="{{ route('announcements.without.delete') }}" >
                             <i class='bx bx-notification bx-rotate-90-alt icon'></i>
                             <span class="text nav-text">Announcements</span>
                         </a>
@@ -376,32 +355,19 @@
 
                     <script>
                         document.getElementById('logout-link').addEventListener('click', function(event) {
-                            event.preventDefault(); // Prevent the default link behavior
+                            event.preventDefault(); 
 
-                            // Assuming you have a hidden form with the ID 'logout-form'
                             document.getElementById('logout-form').submit();
                         });
                     </script>
 
-                    <!-- Include the CSRF token in a hidden form -->
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
 
                 </li>
 
-                <!-- <li class="mode">
-                    <div class="sun-moon">
-                        <i class='bx bx-moon icon moon'></i>
-                        <i class='bx bx-sun icon sun'></i>
-                    </div>
-                    <span class="mode-text text">Dark mode</span>
-
-                    <div class="toggle-switch">
-                        <span class="switch"></span>
-                    </div>
-                </li> -->
-
+                
             </div>
         </div>
 
@@ -448,7 +414,6 @@
 
 
         <script>
-            // Get the current date and time in ISO format
             var now = new Date();
             var year = now.getFullYear();
             var month = (now.getMonth() + 1).toString().padStart(2, '0');
@@ -457,7 +422,6 @@
             var minutes = now.getMinutes().toString().padStart(2, '0');
             var currentDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
 
-            // Set the min attribute of the input to the current date and time
             document.getElementById('meeting_datetime').min = currentDateTime;
         </script>
 

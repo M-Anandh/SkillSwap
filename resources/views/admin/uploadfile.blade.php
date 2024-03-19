@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- Coding by CodingLab | www.codinglabweb.com -->
 <html lang="en">
 
 <head>
@@ -7,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!----======== CSS ======== -->
 
     <link rel="stylesheet" href="{{ asset('web/styles/sidebar.css')}}">
     <link rel="stylesheet" href="{{ asset('web/styles/adminup.css')}}">
@@ -15,11 +13,10 @@
     <link rel="stylesheet" href="sidebar.css">
     <link rel="stylesheet" href="ad.css">
 
-    <!----===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" type="image/x-icon" href="{{ asset('web/assets/logo1.jpg')}}">
     <title>SKillSwap|ManageFiles</title>
-    <!--<title>Dashboard Sidebar Menu</title>-->
+
 </head>
 
 <body>
@@ -94,7 +91,7 @@
 
 
                     <li class="nav-link">
-                        <a href="/admin/announce">
+                        <a href="{{ route('announcements.index') }}">
                             <i class='bx bx-notification bx-rotate-90-alt icon'></i>
                             <span class="text nav-text">Notfiy</span>
                         </a>
@@ -121,24 +118,13 @@
                         });
                     </script>
 
-                    <!-- Include the CSRF token in a hidden form -->
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
 
                 </li>
 
-                <!-- <li class="mode">
-                    <div class="sun-moon">
-                        <i class='bx bx-moon icon moon'></i>
-                        <i class='bx bx-sun icon sun'></i>
-                    </div>
-                    <span class="mode-text text">Dark mode</span>
-
-                    <div class="toggle-switch">
-                        <span class="switch"></span>
-                    </div>
-                </li> -->
+               
 
             </div>
         </div>
@@ -146,11 +132,9 @@
     </nav>
 
     <section class="home">
-        <!-- <div class="text" style="padding: 0px;"> -->
             <div class="container">
                 
 
-                <!-- resources/views/admin/showfiles.blade.php -->
 
                 <table border='1'>
                     <tr>
@@ -187,21 +171,17 @@
                     document.getElementById('fileID').click();
                 }
 
-                // Function to handle file selection
                 function handleFileSelection(e) {
                     document.getElementById('fileName').innerText = e.target.files[0].name;
                 }
 
-                // Function to handle file upload
                 function uploadFile() {
                     const form = document.getElementById('uploadForm');
                     const progressBar = document.getElementById('uploadProgress');
 
-                    // Prevent double form submission
                     if (!isFormSubmitted()) {
                         const xhr = new XMLHttpRequest();
 
-                        // Track upload progress
                         xhr.upload.addEventListener('progress', function(e) {
                             if (e.lengthComputable) {
                                 const percentComplete = (e.loaded / e.total) * 100;
@@ -209,7 +189,6 @@
                             }
                         });
 
-                        // Handle successful upload
                         xhr.onload = function() {
                             if (xhr.status === 200) {
                                 alert('File uploaded successfully!');
@@ -219,12 +198,10 @@
                             }
                         };
 
-                        // Handle upload errors
                         xhr.onerror = function() {
                             alert('File upload failed. Please try again.');
                         };
 
-                        // Submit the form asynchronously
                         xhr.open('POST', form.action, true);
                         xhr.setRequestHeader('X-CSRF-TOKEN', form.querySelector('input[name="_token"]').value);
                         const formData = new FormData(form);
@@ -232,7 +209,6 @@
                     }
                 }
 
-                // Function to check if form is already submitted
                 function isFormSubmitted() {
                     const formSubmitted = document.getElementById('uploadForm').getAttribute('data-submitted');
                     if (formSubmitted === 'true') {
@@ -243,7 +219,6 @@
                     }
                 }
 
-                // Function to reset the form after successful upload
                 function resetForm() {
                     document.getElementById('uploadForm').reset();
                     document.getElementById('fileName').innerText = '';
@@ -253,8 +228,6 @@
             </script>
 
 
-
-        <!-- </div> -->
     </section>
 
     <script>

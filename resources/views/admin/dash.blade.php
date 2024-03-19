@@ -5,18 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!----======== CSS ======== -->
     
     <link rel="stylesheet" href="{{ asset('web/styles/sidebar.css')}}">
 
     <link rel="stylesheet" href="sidebar.css">
     
-    <!----===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" type="image/x-icon" href="{{ asset('web/assets/logo1.jpg')}}">
     <title>SKillSwap|Admin</title>
-    <!--<title>Dashboard Sidebar Menu</title>--> 
-    <style>
+
+<style>
         .container {
             width: 80%;
             margin: auto;
@@ -120,7 +118,7 @@
                     </li>  
                     
                     <li class="nav-link">
-                        <a href="/admin/announce">
+                        <a href="{{ route('announcements.index') }}">
                             <i class='bx bx-notification bx-rotate-90-alt icon'></i>
                             <span class="text nav-text">Notfiy</span>
                         </a>
@@ -145,7 +143,6 @@
     });
 </script>
 
-<!-- Include the CSRF token in a hidden form -->
 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
     @csrf
 </form>
@@ -162,7 +159,6 @@
     <section class="home">
         <div class="text1">
         <div class="container">
-        <!-- <h1>Dashboard</h1> -->
 
         <div class="row" style="padding-top: 20px;">
             <div class="col-md-3">
@@ -184,24 +180,20 @@
 
         <div class="row">
             <div class="col-md-6">
-                <!-- Line Chart for New Type 0 Users -->
                 <canvas id="type0UsersChart"></canvas>
             </div>
 
             <div class="col-md-6">
-                <!-- Line Chart for New Type 2 Users -->
                 <canvas id="type2UsersChart"></canvas>
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-6">
-                <!-- Line Chart for Meetings -->
                 <canvas id="meetingsChart"></canvas>
             </div>
 
             <div class="col-md-6">
-                <!-- Line Chart for File Uploads -->
                 <canvas id="fileUploadsChart"></canvas>
             </div>
         </div>
@@ -239,13 +231,11 @@ modeSwitch.addEventListener("click" , () =>{
     </script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        // Code to initialize and populate charts using Chart.js
         var ctx0 = document.getElementById('type0UsersChart').getContext('2d');
         var ctx1 = document.getElementById('type2UsersChart').getContext('2d');
         var ctx2 = document.getElementById('meetingsChart').getContext('2d');
         var ctx3 = document.getElementById('fileUploadsChart').getContext('2d');
 
-        // Line Chart for Type 0 Users
         var data0 = {
             labels: ["Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6", "Day 7"],
             datasets: [{
@@ -274,7 +264,6 @@ modeSwitch.addEventListener("click" , () =>{
             options: options0
         });
 
-        // Line Chart for Type 2 Users
         var data1 = {
             labels: ["Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6", "Day 7"],
             datasets: [{
@@ -303,7 +292,6 @@ modeSwitch.addEventListener("click" , () =>{
             options: options1
         });
 
-        // Line Chart for Meetings
         var data2 = {
             labels: {!! json_encode($meetingDates) !!},
             datasets: [{
@@ -332,7 +320,6 @@ modeSwitch.addEventListener("click" , () =>{
             options: options2
         });
 
-        // Line Chart for File Uploads
         var data3 = {
             labels: ["Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6", "Day 7"],
             datasets: [{

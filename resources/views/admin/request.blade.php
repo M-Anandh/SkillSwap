@@ -5,16 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!----======== CSS ======== -->
     
     <link rel="stylesheet" href="{{ asset('web/styles/sidebar.css')}}">
 
     <link rel="stylesheet" href="sidebar.css">
     
-    <!----===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     
-    <!--<title>Dashboard Sidebar Menu</title>--> 
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -127,7 +124,7 @@
 
 
                     <li class="nav-link">
-                        <a href="/admin/announce">
+                        <a href="{{ route('announcements.index') }}">
                             <i class='bx bx-notification bx-rotate-90-alt icon'></i>
                             <span class="text nav-text">Notfiy</span>
                         </a>
@@ -154,32 +151,19 @@
     });
 </script>
 
-<!-- Include the CSRF token in a hidden form -->
 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
     @csrf
 </form>
 
                 </li>
 
-                <!-- <li class="mode">
-                    <div class="sun-moon">
-                        <i class='bx bx-moon icon moon'></i>
-                        <i class='bx bx-sun icon sun'></i>
-                    </div>
-                    <span class="mode-text text">Dark mode</span>
-
-                    <div class="toggle-switch">
-                        <span class="switch"></span>
-                    </div>
-                </li> -->
-                
             </div>
         </div>
 
     </nav>
 
     <section class="home">
-        <div class="text"><!-- resources/views/feedback/index.blade.php -->
+        <div class="text">
 
         <h1>Feedbacks</h1>
 
