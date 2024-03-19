@@ -60,9 +60,9 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="{{ route('manage.users.index') }}">
-                            <i class='bx bx-id-card bx-rotate-90-alt icon'></i>
-                            <span class="text nav-text">Manage Users</span>
+                        <a href="{{ route('manage.users.index') }}"  style="background-color: #695CFE; border-radius: 5px;">
+                            <i class='bx bx-id-card bx-rotate-90-alt icon' style="color: white;" ></i>
+                            <span class="text nav-text" style="color: white;" >Manage Users</span>
                         </a>
                     </li>
 

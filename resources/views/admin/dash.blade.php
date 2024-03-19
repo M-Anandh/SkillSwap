@@ -77,9 +77,9 @@
 
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="{{ route('dashboard') }}">
-                            <i class='bx bx-home-alt icon' ></i>
-                            <span class="text nav-text">Dashboard</span>
+                        <a href="{{ route('dashboard') }}" style="background-color: #695CFE; border-radius: 5px;">
+                            <i class='bx bx-home-alt icon'style="color: white;" ></i>
+                            <span class="text nav-text"style="color: white;">Dashboard</span>
                         </a>
                     </li>
 
@@ -98,7 +98,7 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="{{ route('user.allMeetings') }}">
                             <i class='bx bx-pie-chart-alt icon' ></i>
                             <span class="text nav-text">All Bookings</span>
                         </a>

@@ -182,12 +182,15 @@ class UserMeetingController extends Controller
             'meetingCounts' => $meetingCounts,
         ];
     }
-    
-    public function allMeetings()
-{
-    $meetings = Meeting::all();
 
-    return view('admin.all_meetings', compact('meetings'));
+public function allMeetings(Request $request)
+{
+    $startDate = $request->input('start_date', Carbon::now()->toDateString());
+    $endDate = $request->input('end_date', Carbon::now()->toDateString());
+
+    $meetings = Meeting::whereBetween('datetime', [$startDate, $endDate])->get();
+
+    return view('admin.all_meetings', compact('meetings', 'startDate', 'endDate'));
 }
 
 

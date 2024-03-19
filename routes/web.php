@@ -203,6 +203,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/my-booked-meetings/{meeting}/update', [UserMeetingController::class, 'updateMeeting'])->name('user.updateMeeting');
     Route::get('/my-booked-meetings/{meeting}/cancel', [UserMeetingController::class, 'cancelMeeting'])->name('user.cancelMeeting');
     Route::get('/all-meetings', [UserMeetingController::class, 'allMeetings'])->name('user.allMeetings');
+
     Route::get('/upcoming-and-completed-meetings', [UserMeetingController::class, 'upcomingAndCompletedMeetings'])->name('user.dash');
 
 });

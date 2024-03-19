@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-  <!-- Coding by CodingLab | www.codinglabweb.com -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -42,10 +41,23 @@
         background-color: #fff;
     }
 
+    button[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
 
 </style>
 
-    <!--<title>Dashboard Sidebar Menu</title>--> 
 </head>
 <body>
     <nav class="sidebar">
@@ -173,29 +185,39 @@
     <section class="home">
         <div class="text">
         <h2>All Meetings</h2>
-    <table class="table">
-        <thead>
+        <form action="{{ route('user.allMeetings') }}" method="get">
+    <label for="start_date">From Date:</label>
+    <input type="date" id="start_date" name="start_date" value="{{ $startDate }}" required>
+    
+    <label for="end_date">To Date:</label>
+    <input type="date" id="end_date" name="end_date" value="{{ $endDate }}" required>
+    
+    <button type="submit">Filter</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>User</th>
+            <th>Booked Creator</th>
+            <th>Date and Time</th>
+            <th>Last Updated</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($meetings as $meeting)
             <tr>
-                <th>ID</th>
-                <th>User</th>
-                <th>Booked Creator</th>
-                <th>Date and Time</th>
-                <th>Last Updated</th>
-                <!-- Add more columns as needed -->
+                <td>{{ $meeting->id }}</td>
+                <td>{{ $meeting->user->name }}</td>
+                <td>{{ $meeting->bookedUser->name }}</td>
+                <td>{{ $meeting->datetime }}</td>
+                <td>{{ $meeting->updated_at->format('Y-m-d H:i:s') }}</td>
             </tr>
-        </thead>
-        <tbody>
-            @foreach($meetings as $meeting)
-                <tr>
-                    <td >{{ $meeting->id }}</td>
-                    <td >{{ $meeting->user->name }}</td>
-                    <td >{{ $meeting->bookedUser->name }}</td>
-                    <td >{{ $meeting->datetime }}</td>
-                    <td >{{ $meeting->updated_at->format('Y-m-d H:i:s') }}</td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
+        @endforeach
+    </tbody>
+</table>
+
     
         </div>
     </section>

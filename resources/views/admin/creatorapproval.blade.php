@@ -100,10 +100,10 @@
                         </a>
                     </li>
 
-                    <li class="nav-link">
-                        <a href="{{ route('admin.creatorapproval') }}">
-                            <i class='bx bx-user-check bx-rotate-90-alt icon' ></i>
-                            <span class="text nav-text">Approval</span>
+                    <li class="nav-link" style="background-color: #695CFE; border-radius: 5px;">
+                        <a href="{{ route('admin.creatorapproval') }}" >
+                            <i class='bx bx-user-check bx-rotate-90-alt icon'style="color: white;" ></i>
+                            <span class="text nav-text" style="color: white;">Approval</span>
                         </a>
                     </li>
 
@@ -191,7 +191,6 @@
     </nav>
 
     <section class="home">
-        <div class="text">
             <!-- resources/views/admin/creatorapproval/index.blade.php -->
 
 <!-- resources/views/admin/creatorapproval/index.blade.php -->
@@ -235,7 +234,6 @@
 
 
 
-        </div>
     </section>
 
     <script>
