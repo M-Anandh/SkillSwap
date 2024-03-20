@@ -136,7 +136,10 @@ class UserMeetingController extends Controller
         $completedMeetings = $bookedMeetings
             ->filter(function ($meeting) {
                 return \Carbon\Carbon::parse($meeting->datetime)->lte(now());
-            });
+                
+            })
+            
+            ->sortByDesc('datetime');
     
         $completedMeetingsCount = count($completedMeetings);
     

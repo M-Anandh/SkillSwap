@@ -190,7 +190,13 @@
                         </a>
                     </li>
 
-                   
+                    <li class="nav-link">
+                        <a href="{{ route('display.messages') }}">
+
+                            <i class='bx bxs-report bx-rotate-90-alt icon' ></i>
+                            <span class="text nav-text">My Reports</span>
+                        </a>
+                    </li>
 
                     <li class="nav-link">
                         <a href="{{ route('creator.details') }}">
@@ -271,7 +277,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($completedMeetings as $index => $meeting)
+                        @foreach($completedMeetings->take(3) as $index => $meeting)
                             <tr class="{{ $index % 2 == 0 ? 'even-row' : 'odd-row' }}">
                                 <td>{{ $meeting->datetime }}</td>
                                 <td>{{ $meeting->user->name }}</td>

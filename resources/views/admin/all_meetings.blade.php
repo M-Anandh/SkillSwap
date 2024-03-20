@@ -14,6 +14,44 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('web/assets/logo1.jpg')}}">
     <title>SKillSwap|Admin</title>
     <style>
+        
+        form {
+        margin: 20px;
+        padding: 10px;
+        background-color: #f8f9fa;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        display: inline-block; /* Adjust this to your layout */
+    }
+
+    /* Style for labels */
+    label {
+        margin-right: 10px;
+    }
+
+    /* Style for input fields */
+    input[type="date"] {
+        padding: 8px;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+        margin-right: 10px;
+    }
+
+    /* Style for submit button */
+    button[type="submit"] {
+        background-color: #497472;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #497472;
+    }
+
     .table {
         width: 100%;
         border-collapse: collapse;
@@ -27,7 +65,7 @@
     }
 
     .table th {
-        background-color: #2196F3;
+        background-color: #497472;
         color: #fff;
     }
 
@@ -126,6 +164,12 @@
                         </a>
                     </li>
 
+                    <li class="nav-link">
+                        <a href="{{ route('send.message.form') }}">
+                            <i class='bx bxs-report bx-rotate-90-alt icon'></i>
+                            <span class="text nav-text">Send Report</span>
+                        </a>
+                    </li>
 
 
                     <li class="nav-link">

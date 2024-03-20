@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,62 +8,59 @@
     
     
     <link rel="stylesheet" href="{{ asset('web/styles/sidebar.css')}}">
-
-    <link rel="stylesheet" href="sidebar.css">
     
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    
+    <link rel="icon" type="image/x-icon" href="{{ asset('web/assets/logo1.jpg')}}">
+    <title>SKillSwap|Profile</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
         }
-
         h1 {
             text-align: center;
-            color: #333;
             margin-top: 20px;
+            font-family: fangsong;
+    color: brown;
         }
-
-        .feedback-container {
-            max-width: 800px;
+        .home ul {
+            list-style-type: none;
+            padding: 0;
             margin: 20px auto;
+            max-width: 600px;
         }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
+        .home li {
             background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-
-        th, td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
+        .home li strong {
+            font-weight: bold;
+            color: #683b26;
+            font-family: serif;
+            font-size:large;
         }
-
-        th {
-            background-color: #f2f2f2;
+        .home li:nth-child(even) {
+            background-color: #f9f9f9;
         }
     </style>
-        <link rel="icon" type="image/x-icon" href="{{ asset('web/assets/logo1.jpg')}}">
-    <title>SKillSwap|Request</title>
 </head>
 <body>
     <nav class="sidebar">
         <header>
             <div class="image-text">
                 <span class="image">
-                    <img src="{{ asset('web/assets/logo.jpg')}}" alt="">
+                <img src="{{ asset('web/assets/logo.jpg')}}" alt="">
                 </span>
 
                 <div class="text logo-text">
                     <span class="name">SkillSwap</span>
-                    <span class="profession">Admin</span>
+                    <span class="profession">Creator</span>
                 </div>
             </div>
 
@@ -72,70 +70,64 @@
         <div class="menu-bar">
             <div class="menu">
 
-                <li class="search-box"  style="display: none;">
+                <li class="search-box" style="display: none;">
                     <i class='bx bx-search icon'></i>
                     <input type="text" placeholder="Search...">
                 </li>
 
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="{{ route('dashboard') }}">
+                        <a href="#">
                             <i class='bx bx-home-alt icon' ></i>
                             <span class="text nav-text">Dashboard</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="{{ route('admin.creatorapproval') }}">
-                            <i class='bx bx-user-check bx-rotate-90-alt icon' ></i>
-                            <span class="text nav-text">Approval</span>
+                        <a href="{{ route('profile.show') }}">
+                            <i class='bx bx-link bx-rotate-90-alt icon' ></i>
+                            <span class="text nav-text">Manage Meet</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="{{ route('manage.users.index') }}">
-                            <i class='bx bx-id-card bx-rotate-90-alt icon'></i>
-                            <span class="text nav-text">Manage Users</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-link">
-                        <a href="{{ route('user.allMeetings') }}">
+                        <a href="{{ route('user.myBookedMeetings') }}">
                             <i class='bx bx-pie-chart-alt icon' ></i>
-                            <span class="text nav-text">All Bookings</span>
+                            <span class="text nav-text">My Booking</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="{{ route('admin.showform') }}">
-                            <i class='bx bx-cloud-upload bx-rotate-90-alt icon'></i>
-                            <span class="text nav-text">Manage Resources</span>
-                        </a>
-                    </li>
-
-
-                    <li class="nav-link">
-                        <a href="{{ route('feedback.index') }}">
-                            <i class='bx bx-comment-edit bx-rotate-90-alt icon'></i>
-                            <span class="text nav-text">Requests</span>
-                        </a>
-                    </li>
-                    
-                    <li class="nav-link">
-                        <a href="{{ route('send.message.form') }}">
-                            <i class='bx bxs-report bx-rotate-90-alt icon'></i>
-                            <span class="text nav-text">Send Report</span>
+                        <a href="{{ route('chatify') }}" target="_blank">
+                            <i class='bx bx-conversation bx-rotate-90-alt icon' ></i>
+                            <span class="text nav-text">Messages</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="{{ route('announcements.index') }}">
-                            <i class='bx bx-notification bx-rotate-90-alt icon'></i>
-                            <span class="text nav-text">Notfiy</span>
+                        <a href="{{ route('upload-form') }}">
+                            <i class='bx bx-file-find bx-rotate-90-alt icon' ></i>
+                            <span class="text nav-text">Upload Resources</span>
                         </a>
                     </li>
 
-                    
+                    <li class="nav-link">
+                        <a href="{{ route('display.messages') }}">
+
+                            <i class='bx bxs-report bx-rotate-90-alt icon' ></i>
+                            <span class="text nav-text">My Reports</span>
+                        </a>
+                    </li>
+
+                   
+                    <li class="nav-link">
+                        <a href="{{ route('creator.details') }}">
+
+                            <i class='bx bx-user-circle bx-rotate-90-alt icon' ></i>
+                            <span class="text nav-text">My Profile</span>
+                        </a>
+                    </li>
+
 
                 </ul>
             </div>
@@ -149,9 +141,8 @@
 
 <script>
     document.getElementById('logout-link').addEventListener('click', function (event) {
-        event.preventDefault(); // Prevent the default link behavior
+        event.preventDefault(); 
 
-        // Assuming you have a hidden form with the ID 'logout-form'
         document.getElementById('logout-form').submit();
     });
 </script>
@@ -162,38 +153,23 @@
 
                 </li>
 
+                
+                
             </div>
         </div>
 
     </nav>
 
     <section class="home">
-        <div class="text">
-
-        <h1>Feedbacks</h1>
-
-<div class="feedback-container">
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Message</th>
-                <th>Timestamp</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($feedbacks as $feedback)
-                <tr>
-                    <td>{{ $feedback->name }}</td>
-                    <td>{{ $feedback->email }}</td>
-                    <td>{{ $feedback->message }}</td>
-                    <td>{{ $feedback->created_at->diffForHumans() }}</td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
-</div>
+    <h1>MY REPORTS</h1>
+    <ul>
+        @foreach ($messages as $message)
+            <li>
+                <strong>From:</strong> Admin<br>
+                <strong>Message:</strong> {{ $message->message }}
+            </li>
+        @endforeach
+    </ul>
     </section>
 
     <script>
