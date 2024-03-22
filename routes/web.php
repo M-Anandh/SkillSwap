@@ -215,4 +215,5 @@ use App\Http\Controllers\MessageController;
 Route::get('/send-message', [MessageController::class, 'sendMessageForm'])->name('send.message.form');
 Route::post('/send-message', [MessageController::class, 'sendMessage'])->name('send.message');
 Route::get('/display-messages', [MessageController::class, 'displayMessages'])->name('display.messages');
-Route::delete('/delete-message/{id}', [MessageController::class, 'deleteMessage'])->name('delete.message');
+Route::delete('/message/{id}', [MessageController::class, 'deleteMessage'])->name('message.delete');
+

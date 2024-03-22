@@ -133,8 +133,7 @@
         <h2>Uploads The File Here</h2>
         <form action="{{ url('/upload') }}" method="post" enctype="multipart/form-data" onsubmit="uploadFile()">
             @csrf
-            <label for="name">Title:</label>
-            <input type="text" id="name" name="name" required>
+            
             
             <label for="name">Description</label>
             <input type="text" id="name" name="description" required>
@@ -165,9 +164,9 @@
         }
     </script>
    @if (count($uploadedFiles) > 0)
-    <ul style="list-style-type: none; padding: 0;">
+    <ul style="list-style-type: none; padding: 61px;">
         @foreach ($uploadedFiles as $file)
-            <li style="margin-bottom: 20px; border: 1px solid #ccc; padding: 10px;">
+            <li style="margin-bottom: 20px; border: 1px solid #966161;background-color:aliceblue; padding: 10px;">
                 <strong>Name:</strong> {{ $file->original_name }}<br>
                 <strong>Description:</strong> {{ $file->description }}<br>
                 <form action="{{ route('delete.file', ['id' => $file->id]) }}" method="post" style="display: inline;">

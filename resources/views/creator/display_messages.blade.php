@@ -48,6 +48,22 @@
         .home li:nth-child(even) {
             background-color: #f9f9f9;
         }
+
+        .delete1{
+            margin: 10px 0px 0px 0px;
+            background-color: red;
+            border: 1px solid red;
+            padding: 5px;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .delete1:hover{
+            cursor: pointer;
+            background-color: darkred;
+
+        }
+        
     </style>
 </head>
 <body>
@@ -112,10 +128,10 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="{{ route('display.messages') }}">
+                        <a href="{{ route('display.messages') }}" style="background-color: #695CFE; border-radius: 5px;">
 
-                            <i class='bx bxs-report bx-rotate-90-alt icon' ></i>
-                            <span class="text nav-text">My Reports</span>
+                            <i class='bx bxs-report bx-rotate-90-alt icon' style="color: white;"></i>
+                            <span class="text nav-text" style="color: white;">My Reports</span>
                         </a>
                     </li>
 
@@ -163,13 +179,22 @@
     <section class="home">
     <h1>MY REPORTS</h1>
     <ul>
-        @foreach ($messages as $message)
-            <li>
+    @foreach ($messages->sortByDesc('created_at') as $message)
+        <li>
+        <div class="message-content">
                 <strong>From:</strong> Admin<br>
                 <strong>Message:</strong> {{ $message->message }}
-            </li>
-        @endforeach
-    </ul>
+            </div>
+            <form action="{{ route('message.delete', $message->id) }}" method="POST" class="delete-form">
+                @csrf
+                @method('DELETE')
+                <button class="delete1" type="submit">Delete</button>
+            </form>
+        </li>
+    @endforeach
+</ul>
+
+
     </section>
 
     <script>

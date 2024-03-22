@@ -39,21 +39,23 @@ class MessageController extends Controller
 
     public function displayMessages()
     {
-        $messages = Message::where('receiver_id', auth()->id())->get();
+        $messages = Message::where('receiver_id', auth()->id())->latest()->get();
 
         return view('creator.display_messages', compact('messages'));
     }
 
+    
     public function deleteMessage($id)
     {
         $message = Message::findOrFail($id);
-
-
-        if ($message->sender_id == auth()->id()) {
+        
+        if ($message->receiver_id === auth()->id()) {
             $message->delete();
             return redirect()->back()->with('success', 'Message deleted successfully!');
         } else {
             return redirect()->back()->with('error', 'You are not authorized to delete this message!');
         }
     }
+
+    
 }
