@@ -16,7 +16,7 @@
     }
 
     th {
-        background-color: #f2f2f2;
+        background-color: #95d0d1;
     }
 
     .form-group {
@@ -56,6 +56,13 @@
     .btn-danger {
         background-color: #f44336;
         color: white;
+    }
+
+    tr:nth-child(even) {
+        background-color: #d6e8ed; 
+    }
+    tr:nth-child(odd) {
+        background-color: #ffffff; 
     }
 </style>
 
@@ -251,7 +258,6 @@
 </tbody>
 
 
-</tbody>
 
 
 

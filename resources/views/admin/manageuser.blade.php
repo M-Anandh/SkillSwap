@@ -14,6 +14,21 @@
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" type="image/x-icon" href="{{ asset('web/assets/logo1.jpg')}}">
     <title>SKillSwap|ManageUsers</title>
+    <style>
+        .bottom-content li a:hover{
+            background-color: red; 
+            border-radius: 5px;
+        }
+
+        .bottom-content i:hover{
+            color: white;
+        }
+
+        .bottom-content span:hover{
+            color: white;
+        }
+
+    </style>
 </head>
 <body>
     <nav class="sidebar">

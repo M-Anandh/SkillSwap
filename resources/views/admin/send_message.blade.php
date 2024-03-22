@@ -81,6 +81,19 @@
             padding: 10px;
             margin-bottom: 10px;
         }
+        .bottom-content li a:hover{
+            background-color: red; 
+            border-radius: 5px;
+        }
+
+        .bottom-content i:hover{
+            color: white;
+        }
+
+        .bottom-content span:hover{
+            color: white;
+        }
+
     </style>
 </head>
 
@@ -142,7 +155,7 @@
                     <li class="nav-link">
                         <a href="{{ route('admin.showform') }}">
                             <i class='bx bx-cloud-upload bx-rotate-90-alt icon'></i>
-                            <span class="text nav-text">Manage Resources</span>
+                            <span class="text nav-text">Manage Resource</span>
                         </a>
                     </li>
 
@@ -155,9 +168,9 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="{{ route('send.message.form') }}">
-                            <i class='bx bxs-report bx-rotate-90-alt icon'></i>
-                            <span class="text nav-text">Send Report</span>
+                        <a href="{{ route('send.message.form') }}" style="background-color: #695CFE; border-radius: 5px;">
+                            <i class='bx bxs-report bx-rotate-90-alt icon' style="color: white;"></i>
+                            <span class="text nav-text" style="color: white;">Send Report</span>
                         </a>
                     </li>
 

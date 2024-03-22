@@ -16,6 +16,21 @@
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" type="image/x-icon" href="{{ asset('web/assets/logo1.jpg')}}">
     <title>SKillSwap|ManageFiles</title>
+    <style>
+        .bottom-content li a:hover{
+            background-color: red; 
+            border-radius: 5px;
+        }
+
+        .bottom-content i:hover{
+            color: white;
+        }
+
+        .bottom-content span:hover{
+            color: white;
+        }
+
+    </style>
 
 </head>
 
@@ -74,17 +89,26 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="{{ route('admin.showform') }}">
-                            <i class='bx bx-cloud-upload bx-rotate-90-alt icon'></i>
-                            <span class="text nav-text">Manage Resources</span>
+                        <a href="{{ route('admin.showform') }}" style="background-color: #695CFE; border-radius: 5px;">
+                            <i class='bx bx-cloud-upload bx-rotate-90-alt icon' style="color: white;"></i>
+                            <span class="text nav-text" style="color: white;">Manage Resource</span>
                         </a>
                     </li>
+
+                    
 
 
                     <li class="nav-link">
                         <a href="{{ route('feedback.index') }}">
                             <i class='bx bx-comment-edit bx-rotate-90-alt icon'></i>
                             <span class="text nav-text">Requests</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="{{ route('send.message.form') }}">
+                            <i class='bx bxs-report bx-rotate-90-alt icon'></i>
+                            <span class="text nav-text">Send Report</span>
                         </a>
                     </li>
 
@@ -104,7 +128,7 @@
 
             <div class="bottom-content">
                 <li class="">
-                    <a href="{{ route('logout') }}" id="logout-link">
+                    <a href="{{ route('logout') }}" id="logout-link" >
                         <i class='bx bx-log-out icon'></i>
                         <span class="text nav-text">Logout</span>
                     </a>

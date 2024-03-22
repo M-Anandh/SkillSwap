@@ -65,8 +65,8 @@
     }
 
     .table th {
-        background-color: #497472;
-        color: #fff;
+        background-color: #007bff;
+    color: #fff;
     }
 
     .table tr:nth-child(even) {
@@ -90,6 +90,19 @@
     button[type="submit"]:hover {
         background-color: #45a049;
     }
+
+    .bottom-content li a:hover{
+            background-color: red; 
+            border-radius: 5px;
+        }
+
+        .bottom-content i:hover{
+            color: white;
+        }
+
+        .bottom-content span:hover{
+            color: white;
+        }
 
 
 </style>

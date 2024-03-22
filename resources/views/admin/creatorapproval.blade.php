@@ -40,7 +40,8 @@
     }
 
     th {
-        background-color: #f2f2f2;
+        background-color: #007bff;
+    color: #fff;
     }
 
     button {
@@ -60,6 +61,19 @@
         margin-top: 20px;
         font-size: 18px;
     }
+    .bottom-content li a:hover{
+            background-color: red; 
+            border-radius: 5px;
+        }
+
+        .bottom-content i:hover{
+            color: white;
+        }
+
+        .bottom-content span:hover{
+            color: white;
+        }
+
     </style>
         <link rel="icon" type="image/x-icon" href="{{ asset('web/assets/logo1.jpg')}}">
     <title>SKillSwap|Approval</title>
@@ -121,7 +135,7 @@
                     <li class="nav-link">
                         <a href="{{ route('admin.showform') }}">
                             <i class='bx bx-cloud-upload bx-rotate-90-alt icon'></i>
-                            <span class="text nav-text">Manage Resources</span>
+                            <span class="text nav-text">Manage Resource</span>
                         </a>
                     </li>
 
