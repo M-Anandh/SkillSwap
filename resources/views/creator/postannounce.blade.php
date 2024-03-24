@@ -124,7 +124,7 @@
                     <li class="nav-link">
                         <a href="#">
                             <i class='bx bx-link bx-rotate-90-alt icon'></i>
-                            <span class="text nav-text">ManageMeet Link</span>
+                            <span class="text nav-text">Manage Meet</span>
                         </a>
                     </li>
 

@@ -154,7 +154,7 @@
             <th>Name</th>
             <th>Email</th>
             <th>Type</th>
-            <th>Delete</th>
+            <th>Action</th>
         </tr>
         @forelse ($users as $user)
             <tr>
@@ -162,10 +162,11 @@
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->type }}</td>
                 <td>
-                    <form method="post" action="{{ route('manage.users.destroy', ['id' => $user->id]) }}">
+                    <form method="post" action="{{ route('manage.users.destroy', ['id' => $user->id]) }}" style="display: flex;
+    justify-content: center;">
                         @csrf
                         @method('delete')
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <button type="submit" class="btn btn-danger" ><i class="bx bx-trash"></i></button>
                     </form>
                 </td>
             </tr>

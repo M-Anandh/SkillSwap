@@ -93,7 +93,7 @@
 
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="{{ route('user.dash') }}">
                             <i class='bx bx-home-alt icon' ></i>
                             <span class="text nav-text">Dashboard</span>
                         </a>
@@ -123,7 +123,7 @@
                     <li class="nav-link">
                         <a href="{{ route('upload-form') }}">
                             <i class='bx bx-file-find bx-rotate-90-alt icon' ></i>
-                            <span class="text nav-text">Upload Resources</span>
+                            <span class="text nav-text">Upload Resource</span>
                         </a>
                     </li>
 

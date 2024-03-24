@@ -46,19 +46,6 @@
             display: table;
             clear: both;
         }
-        .bottom-content li a:hover{
-            background-color: red; 
-            border-radius: 5px;
-        }
-
-        .bottom-content i:hover{
-            color: white;
-        }
-
-        .bottom-content span:hover{
-            color: white;
-        }
-
     </style>
 </head>
 <body>

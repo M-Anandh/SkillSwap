@@ -44,10 +44,8 @@ class FeedbackController extends Controller
         $feedback = Feedbacks::findOrFail($id);
         $feedback->delete();
 
-        // Flash a success message to the session
         Session::flash('success', 'Feedback deleted successfully!');
 
-        // Redirect back to the page showing all feedbacks
         return redirect()->route('feedback.index');
     }
 }

@@ -1,8 +1,5 @@
 @component('mail::message')
-<div style="text-align: center; margin-bottom: 20px;">
-    <!-- Replace the image with your logo -->
-    <img src="{{ asset('web/assets/logo.jpg')}}" alt="SkillSwap Logo" width="150" style="border-radius: 10px;">
-</div>
+
 
 # Welcome to SkillSwap!
 
