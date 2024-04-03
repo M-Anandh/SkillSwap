@@ -128,9 +128,8 @@
 
 <script>
     document.getElementById('logout-link').addEventListener('click', function (event) {
-        event.preventDefault(); // Prevent the default link behavior
+        event.preventDefault(); 
 
-        // Assuming you have a hidden form with the ID 'logout-form'
         document.getElementById('logout-form').submit();
     });
 </script>

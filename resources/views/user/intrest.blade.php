@@ -20,7 +20,10 @@
         }
 
         .container {
-            background-image: url("{{ asset('web/assets/userdash.jpg') }}");
+            /* background-image: url("{{ asset('web/assets/userdash.jpg') }}"); */
+            /* background-image: linear-gradient(140deg, #b69992 0%, #5e5c79 50%, #504f7b 75%); */
+            background-image: url("https://cdn.pixabay.com/photo/2019/03/12/12/47/people-4050698_1280.jpg");
+            opacity: 70%;
             background-size: cover;
             background-position: center;
             color: #fff;
@@ -31,7 +34,7 @@
 
         .welcome-container,
         .users-container {
-            margin-top: 20px;
+            margin-top: -12px;
             text-align: center;
 
         }
@@ -76,19 +79,19 @@
         }
 
         .user-box:nth-child(1) {
-            background-color: #3498db;
+            background-color: #9f8184;
         }
 
         .user-box:nth-child(2) {
-            background-color: #e74c3c;
+            background-color: #a1aed1;
         }
 
         .user-box:nth-child(3) {
-            background-color: #2ecc71;
+            background-color: #76a188;
         }
 
         .user-box:nth-child(4) {
-            background-color: #f39c12;
+            background-color: #d8c9cc;
         }
 
         .user-box:nth-child(5) {
@@ -116,17 +119,30 @@
         }
 
         .welcome-container h2 {
+            display: inline-block;
+            margin: 0;
+            font-size: 35px;
+            background-image: url(
+'https://media.geeksforgeeks.org/wp-content/uploads/20231218224644/w.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+        }
+        .welcome-container h3 {
             font-size: 28px;
             margin-bottom: 10px;
-            color: #3498db;
             animation: slideInTitle 3s ease-in-out;
-            font-family: 'Roboto', sans-serif;
+            color:mediumturquoise;
         }
 
         .welcome-container p {
             font-size: 16px;
-            margin-bottom: 20px;
+            margin-bottom: -11px;
             color: #fff;
+            margin-top: 20px;
             animation: slideInContent 3s ease-in-out 1s;
         }
 
@@ -251,6 +267,7 @@
 
         .welcome-container h2 {
             font-size: 24px; 
+          /* color:linear-gradient(140deg, #b69992 0%, #5e5c79 50%, #504f7b 75%); */
         }
 
         .welcome-container p {
@@ -364,13 +381,9 @@
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
-
-                </li>
-
-                
+                </li>  
             </div>
         </div>
-
     </nav>
 
     <section class="home">
@@ -378,7 +391,7 @@
             <div class="welcome-container">
                 <h2>Welcome Back, {{ $loggedInUser->name }}!</h2><br>
                 <p> Welcome to SkillSwap! We are on a mission to empower and foster growth. Our platform goes beyond conventional learning, connecting individuals with seasoned creators for personalized guidance in career development, skill enhancement, and exam preparation. Engage in 1:1 mentoring, explore tailored roadmaps, and benefit from expert-led skill enhancement. SkillSwap is your dedicated partner in unlocking unique potential. Join our community and embark on a journey to personalized excellence.</p><br>
-                <h2 style="color: cyan">Top Creators Profile Based on Your Intrests</h2><br>
+                <h3>Top Creators Profile Based on Your Interests</h3><br>
             </div>
 
 
@@ -420,7 +433,7 @@
             var day = now.getDate().toString().padStart(2, '0');
             var hours = now.getHours().toString().padStart(2, '0');
             var minutes = now.getMinutes().toString().padStart(2, '0');
-            var currentDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
+            var currentDateTime = ${year}-${month}-${day}T${hours}:${minutes};
 
             document.getElementById('meeting_datetime').min = currentDateTime;
         </script>

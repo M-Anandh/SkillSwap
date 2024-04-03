@@ -9,7 +9,7 @@ class AuthController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('/'); // Redirect to the home page or any other desired page
+        return redirect()->route('/'); 
     }
 }
 
