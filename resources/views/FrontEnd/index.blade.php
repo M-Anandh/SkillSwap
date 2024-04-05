@@ -222,11 +222,11 @@
       <div class="accordian-item-body">
         <div class="accordian-item-body-content">
           <p>
-            Finding and accessing free study materials is simple! Here's how:<br>
-            <li>Explore our website's navigation bar.</li>
-            <li>Look for the "Study Materials" or "Free Resources" section.</li>
-            <li>Click on the section to access a variety of study materials.</li>
-            <li>Download the materials you need for your studies.</li>
+          Creator Verification Process:<br>
+            <li>Admin team verifies creator credentials and expertise.</li>
+            <li>LinkedIn profiles are checked for professional validation.</li>
+            <li>Approval from the admin team is required for login access.</li>
+            <li>Only verified creators can access the platform's features post-approval.</li>
           </p>
         </div>
       </div>
@@ -239,10 +239,10 @@
       <div class="accordian-item-body">
         <div class="accordian-item-body-content">
           <p>
-            All of our courses are available to learners without the need for registration or enrollment.
-            There are no specific prerequisites for most of our courses. However, for some advanced courses,
-            there may be prerequisites or recommended prior knowledge, which will be mentioned in the course
-            description.
+          Scheduling a consultation with a creator on SkillSwap is effortless.
+           Simply browse through the list of experienced creators based on your desired expertise. 
+           Once you've found the right match, select a convenient time slot from their availability. 
+           Complete the booking process, and you're all set for your personalized consultation session.
           </p>
         </div>
       </div>
@@ -254,10 +254,7 @@
       <div class="accordian-item-body">
         <div class="accordian-item-body-content">
           <p>
-            All of our courses are available to learners without the need for registration or enrollment.
-            There are no specific prerequisites for most of our courses. However, for some advanced courses,
-            there may be prerequisites or recommended prior knowledge, which will be mentioned in the course
-            description.
+          SkillSwap ensures user privacy during messaging through robust encryption methods, safeguarding communication from unauthorized access. Secure communication channels further protect user information, enhancing confidentiality. Strict data protection policies are in place to prevent unauthorized disclosure or misuse of user data. Users also have control over their messaging settings, allowing them to manage privacy preferences and control communication access.
           </p>
         </div>
       </div>
@@ -266,16 +263,16 @@
 
     <div class="accordian-item">
       <div class="accordian-item-header">
-        <h4>What happens if I need to cancel or reschedule a consultation?</h4>
+        <h4>Can I change my consultation booking time after it's been confirmed?</h4>
       </div>
       <div class="accordian-item-body">
         <div class="accordian-item-body-content">
           <p>
-            Quizzes are a valuable assessment tool:<br>
-            <li>Access the quizzes on the course page.</li>
-            <li>Take the quizzes to test your understanding of the course material.</li>
-            <li>Your quiz scores will be recorded, and you can review your performance.</li>
-            <li>Quizzes are designed to help reinforce your learning.</li>
+            Rescheduling Consultation Booking Time by Following these steps:<br>
+            <li>Yes, you can modify your consultation booking time if needed.</li>
+            <li>Log in to your SkillSwap account.</li>
+            <li>Access your booking details from your dashboard or booking history.</li>
+            <li>Choose the option to reschedule the appointment to a more convenient time.</li>
           </p>
         </div>
       </div>

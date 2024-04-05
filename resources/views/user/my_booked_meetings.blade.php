@@ -63,6 +63,10 @@
             border-radius: 4px;
             font-size: 14px;
         }
+        th{
+            background-color: blue;
+            color: white;
+        }
     </style>
 
 </head>
@@ -124,7 +128,7 @@
                     <li class="nav-link">
                         <a href="{{ route('upload-form') }}">
                             <i class='bx bx-file-find bx-rotate-90-alt icon'></i>
-                            <span class="text nav-text">Upload Resources</span>
+                            <span class="text nav-text">Upload Resource</span>
                         </a>
                     </li>
 

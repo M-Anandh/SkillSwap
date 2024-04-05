@@ -275,7 +275,7 @@ button {
                     </form>
                 </div>
                 @empty
-                <p>No users found with similar skills.</p>
+                <p>No Creator found</p>
                 @endforelse
             </div>
         </div>
