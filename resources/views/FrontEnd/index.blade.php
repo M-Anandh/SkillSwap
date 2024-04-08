@@ -309,8 +309,8 @@
           <ul>
               <li><a href="/">Home</a></li>
               <li><a href="/index/service">Services</a></li>
-              <li><a href="/index/about">Contact</a></li>
-              <li><a href="/index/contact">About</a></li>
+              <li><a href="/index/contact">Contact</a></li>
+              <li><a href="/index/about">About</a></li>
           </ul>
       </div>
       <div class="col">
