@@ -28,7 +28,7 @@ class CreatorController extends Controller
             'phone' => 'nullable|string|max:20',
             'gender' => 'nullable|string|in:Male,Female,Other',
             'profile_photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'occupation' => ['required', 'string', 'max:255'],
+            'occupations' => 'required|string|max:255',
             'exp' => ['required', 'numeric'],
             'link' => ['required', 'string', 'url'],
             'portfolio' => ['nullable', 'string', 'url'],
@@ -36,7 +36,6 @@ class CreatorController extends Controller
             'available' => ['required', 'in:Yes,No Only'],
         ]);
 
-        // Update user details
         $user = Auth::user();
         $user->name = $request->input('name');
         $user->phone = $request->input('phone');
@@ -48,7 +47,6 @@ class CreatorController extends Controller
         $user->skill = $request->input('interests');
 
 
-        // Handle profile photo upload
         if ($request->hasFile('profile_photo')) {
             $profilePhotoPath = $request->file('profile_photo')->store('profile_photos', 'public');
             $user->profile_photo_path = $profilePhotoPath;
