@@ -1,4 +1,16 @@
-<style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="stylesheet" href="{{ asset('web/styles/sidebar.css')}}">
+    
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" type="image/x-icon" href="{{ asset('web/assets/logo1.jpg')}}">
+    <style>
     h2 {
         color: #333;
     }
@@ -7,16 +19,20 @@
         width: 100%;
         border-collapse: collapse;
         margin-top: 20px;
+        opacity: 0; /* Initially hidden */
+        transition: opacity 1s ease; /* Smooth transition for opacity */
     }
 
     th, td {
         border: 1px solid #ddd;
         padding: 12px;
         text-align: left;
+        transition: background-color 0.3s ease; /* Smooth transition for background-color */
     }
 
     th {
-        background-color: #95d0d1;
+        background-color: blue;
+        color: #ffffff;
     }
 
     .form-group {
@@ -64,23 +80,15 @@
     tr:nth-child(odd) {
         background-color: #ffffff; 
     }
+    tr:hover {
+        background-color: #c0e4e5;
+    }
+
+    table.animate {
+        opacity: 1;
+    }
 </style>
 
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    
-    <link rel="stylesheet" href="{{ asset('web/styles/sidebar.css')}}">
-    
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="icon" type="image/x-icon" href="{{ asset('web/assets/logo1.jpg')}}">
     <title>SKillSwap|HOME</title>
 </head>
 <body>
@@ -293,6 +301,12 @@ modeSwitch.addEventListener("click" , () =>{
     }
 });
     </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelector('table').classList.add('animate');
+    });
+</script>
+
 
 </body>
 </html>

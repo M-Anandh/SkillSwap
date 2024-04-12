@@ -117,12 +117,7 @@
                         </a>
                     </li>  
 
-                    <li class="nav-link">
-                        <a href="{{ route('send.message.form') }}">
-                            <i class='bx bxs-report bx-rotate-90-alt icon'></i>
-                            <span class="text nav-text">Send Report</span>
-                        </a>
-                    </li>
+                    
                     
                     <li class="nav-link">
                         <a href="{{ route('announcements.index') }}">

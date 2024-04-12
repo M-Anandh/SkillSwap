@@ -127,22 +127,22 @@
 
     <div class="teamimg">
       <div class="teamr1">
-        <img src="{{ asset("web/team/pexels-ali-madad-sakhirani-997489.jpg")}}">
+        <img src="{{ asset('web/team/pexels-ali-madad-sakhirani-997489.jpg')}}">
         <p class="na">Dines</p>
         <p class="role">Technology</p>
       </div>
       <div class="teamr1">
-        <img src="{{ asset("web/team/pexels-chloe-1043471.jpg")}}">
+        <img src="{{ asset('web/team/pexels-chloe-1043471.jpg')}}">
         <p class="na">Sundar</p>
         <p class="role">Product</p>
       </div>
       <div class="teamr1">
-        <img src="{{ asset("web/team/pexels-italo-melo-2379004.jpg")}}">
+        <img src="{{ asset('web/team/pexels-italo-melo-2379004.jpg')}}">
         <p class="na">Robert Fox</p>
         <p class="role">Strategy</p>
       </div>
       <div class="teamr1">
-        <img src="{{ asset("web/team/pexels-linkedin-sales-navigator-2182970.jpg")}}">
+        <img src="{{ asset('web/team/pexels-linkedin-sales-navigator-2182970.jpg')}}">
         <p class="na">Jane copper</p>
         <p class="role">Data</p>
       </div>

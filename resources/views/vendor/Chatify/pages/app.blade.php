@@ -98,14 +98,14 @@
         @include('Chatify::layouts.sendForm')
     </div>
     {{-- ---------------------- Info side ---------------------- --}}
-    <!-- <div class="messenger-infoView app-scroll">
+    <div class="messenger-infoView app-scroll">
         {{-- nav actions --}}
         <nav>
             <p>User Details</p>
             <a href="#"><i class="fas fa-times"></i></a>
         </nav>
         {!! view('Chatify::layouts.info')->render() !!}
-    </div> -->
+    </div>
 </div>
 
 @include('Chatify::layouts.modals')

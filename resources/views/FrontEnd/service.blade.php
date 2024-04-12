@@ -110,7 +110,7 @@
         <a href="{{ route('logins') }}" style="text-decoration: none;cursor: pointer;"><button class="join-button1">JOIN US</button></a>
       </div>
       <div class="contaiimg">
-        <img src="{{ asset("web/assets/F1.jpg")}}">
+        <img src="https://cdn.pixabay.com/photo/2017/09/27/06/28/book-2791117_640.jpg">
       </div>
     </div><br><br>
 

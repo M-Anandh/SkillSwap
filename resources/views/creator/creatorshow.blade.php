@@ -77,13 +77,7 @@
                         </a>
                     </li>
 
-                    <li class="nav-link">
-                        <a href="{{ route('display.messages') }}">
-
-                            <i class='bx bxs-report bx-rotate-90-alt icon' ></i>
-                            <span class="text nav-text">My Reports</span>
-                        </a>
-                    </li>
+                    
 
                     <li class="nav-link" style="background-color: #695CFE; border-radius: 5px;">
                         <a href="{{ route('creator.details') }}" >

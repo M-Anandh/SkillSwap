@@ -127,13 +127,7 @@
                         </a>
                     </li>
 
-                    <li class="nav-link">
-                        <a href="{{ route('display.messages') }}" style="background-color: #695CFE; border-radius: 5px;">
-
-                            <i class='bx bxs-report bx-rotate-90-alt icon' style="color: white;"></i>
-                            <span class="text nav-text" style="color: white;">My Reports</span>
-                        </a>
-                    </li>
+                    
 
                    
                     <li class="nav-link">
