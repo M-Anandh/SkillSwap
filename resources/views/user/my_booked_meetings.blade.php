@@ -107,7 +107,7 @@
                     <li class="nav-link">
                         <a href="{{ route('profile.show') }}">
                             <i class='bx bx-link bx-rotate-90-alt icon'></i>
-                            <span class="text nav-text">ManageMeet Link</span>
+                            <span class="text nav-text">Manage Meet</span>
                         </a>
                     </li>
 
@@ -132,6 +132,13 @@
                         </a>
                     </li>
 
+                    <li class="nav-link">
+                        <a href="{{ route('reports.index') }}">
+
+                            <i class='bx bxs-report bx-rotate-90-alt icon' ></i>
+                            <span class="text nav-text">My Reports</span>
+                        </a>
+                    </li>
                     
                     <li class="nav-link">
                         <a href="{{ route('creator.details') }}">

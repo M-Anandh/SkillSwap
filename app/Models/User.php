@@ -68,6 +68,10 @@ class User extends Authenticatable
         return $this->hasMany(Meeting::class);
     }
 
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
 
     /**
      * The attributes that should be cast.
@@ -89,5 +93,10 @@ class User extends Authenticatable
     public function uploadedFiles()
     {
         return $this->hasMany(UploadedFile::class);
+    }
+
+    public function reports()
+    {
+        return $this->hasMany(Report::class);
     }
 }

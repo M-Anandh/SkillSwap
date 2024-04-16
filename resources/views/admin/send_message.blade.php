@@ -168,7 +168,13 @@
                     </li>
 
                     
+                    <li class="nav-link" style="background-color: #695CFE; border-radius: 5px;">
+                        <a href="{{ route('reports.create') }}" >
 
+                            <i class='bx bxs-report bx-rotate-90-alt icon'style="color: white;" ></i>
+                            <span class="text nav-text" style="color: white;">Send Reports</span>
+                        </a>
+                    </li>
 
                     <li class="nav-link">
                         <a href="{{ route('announcements.index') }}">
@@ -224,43 +230,25 @@
             </ul>
         </div>
         @endif
-        <form action="{{ route('send.message') }}" method="POST">
-            @csrf
-            <div>
-                <label for="receiver_id">Select Creator Name:</label>
-                <select name="receiver_id" id="receiver_id">
-                    <option value="">Select a User</option>
-                    @foreach ($type2Users as $user)
-                    <option value="{{ $user->id }}">{{ $user->name }}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div>
-                <label for="message">Message:</label><br>
-                <textarea name="message" rows="4" cols="50"></textarea>
-            </div>
-            <button type="submit">Send Message</button>
-        </form>
+        <form method="POST" action="{{ route('reports.store') }}">
+    @csrf
+    <div class="form-group">
+        <label for="user_id">Select User:</label>
+        <select name="user_id" id="user_id" class="form-control">
+            @foreach($typeTwoUsers as $user)
+                <option value="{{ $user->id }}">{{ $user->name }}</option>
+            @endforeach
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="message">Report Message:</label>
+        <textarea name="message" id="message" class="form-control" rows="5"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit Report</button>
+</form>
 
 
-        <!-- <h1>All Messages</h1>
-<ul class="message-list">
-    @foreach ($messages as $message)
-    <li>
-        @if ($message->receiver)
-            <strong>To:</strong> {{ $message->receiver->name }}<br>
-        @else
-            <strong>To:</strong> Unknown<br>
-        @endif
-        <strong>Message:</strong> {{ $message->message }}
-        <form action="{{ route('delete.message', $message->id) }}" method="POST">
-            @csrf
-            @method('DELETE')
-            <button type="submit">Delete</button>
-        </form>
-    </li>
-    @endforeach
-</ul> -->
+   
 
 
 

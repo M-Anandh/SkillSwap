@@ -127,7 +127,13 @@
                         </a>
                     </li>
 
-                    
+                    <li class="nav-link" style="background-color: #695CFE; border-radius: 5px;">
+                        <a href="{{ route('reports.index') }}">
+
+                            <i class='bx bxs-report bx-rotate-90-alt icon'style="color: white;" ></i>
+                            <span class="text nav-text" style="color: white;">My Reports</span>
+                        </a>
+                    </li>
 
                    
                     <li class="nav-link">
@@ -172,21 +178,25 @@
 
     <section class="home">
     <h1>MY REPORTS</h1>
+    @if (count($reports) > 0)
     <ul>
-    @foreach ($messages->sortByDesc('created_at') as $message)
-        <li>
-        <div class="message-content">
-                <strong>From:</strong> Admin<br>
-                <strong>Message:</strong> {{ $message->message }}
-            </div>
-            <form action="{{ route('message.delete', $message->id) }}" method="POST" class="delete-form">
-                @csrf
-                @method('DELETE')
-                <button class="delete1" type="submit">Delete</button>
-            </form>
-        </li>
-    @endforeach
-</ul>
+        @foreach ($reports as $report)
+            <li>
+                <div>
+                    <strong>Message:</strong> {{ $report->message }}<br>
+                    <strong>Received At:</strong> {{ $report->created_at->format('Y-m-d H:i:s') }}
+                </div>
+                <form action="{{ route('reports.destroy', $report->id) }}" method="POST" class="delete-form">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="delete1">Delete</button>
+                </form>
+            </li>
+        @endforeach
+    </ul>
+@else
+    <p>No reports found.</p>
+@endif
 
 
     </section>

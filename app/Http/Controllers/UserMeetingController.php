@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 // app/Http/Controllers/UserMeetingController.php
 use Carbon\Carbon;
 use App\Models\User;
+use App\Models\Review;
 use App\Models\Meeting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,40 +23,52 @@ use App\Mail\MeetingCanceledForCreatorMail;
 
 class UserMeetingController extends Controller
 {
+
     public function bookMeeting(Request $request, User $bookedUser)
     {
         $loggedInUser = Auth::user();
-
+    
         // Validate the request data as needed
         $request->validate([
             'meeting_datetime' => 'required|date',
         ]);
-
-        // Check booked user availability and other conditions
-        // Add your logic here...
-
-        // Check if there is no other meeting at the specified time and date
-        $existingMeeting = Meeting::where('booked_user_id', $bookedUser->id)
-            ->where('datetime', $request->input('meeting_datetime'))
+    
+        // Calculate the datetime 30 minutes before the requested meeting datetime
+        $previousMeetingDatetime = Carbon::parse($request->input('meeting_datetime'))->subMinutes(30);
+    
+        // Check if there is any existing meeting scheduled within 30 minutes of the requested datetime
+        $existingMeeting = Meeting::where(function ($query) use ($loggedInUser, $bookedUser, $previousMeetingDatetime, $request) {
+                $query->where(function ($subquery) use ($loggedInUser, $previousMeetingDatetime, $request) {
+                    $subquery->where('user_id', $loggedInUser->id)
+                        ->where('datetime', '>=', $previousMeetingDatetime)
+                        ->where('datetime', '<', $request->input('meeting_datetime'));
+                })
+                ->orWhere(function ($subquery) use ($bookedUser, $previousMeetingDatetime, $request) {
+                    $subquery->where('booked_user_id', $bookedUser->id)
+                        ->where('datetime', '>=', $previousMeetingDatetime)
+                        ->where('datetime', '<', $request->input('meeting_datetime'));
+                });
+            })
             ->first();
-
+    
         if ($existingMeeting) {
-            return redirect()->back()->with('error', 'This creator already has a meeting scheduled at the specified time and date.');
+            return redirect()->back()->with('error', 'You cannot book a meeting within 30 minutes of the previous booking.');
         }
-
+    
         // Store meeting details in the database
         $meeting = Meeting::create([
             'user_id' => $loggedInUser->id,
             'booked_user_id' => $bookedUser->id,
             'datetime' => $request->input('meeting_datetime'),
         ]);
-
+    
         // Send email notification to the logged-in user with booked creator's portfolio
         Mail::to($loggedInUser->email)->send(new MeetingBookedMail($meeting, $bookedUser));
         Mail::to($bookedUser->email)->send(new MeetingBookedMail1($meeting, $loggedInUser));
-
+    
         return redirect()->back()->with('success', 'Meeting booked successfully.');
     }
+    
 
     public function myBookedMeetings()
     {
@@ -195,6 +208,24 @@ public function allMeetings(Request $request)
 
     return view('admin.all_meetings', compact('meetings', 'startDate', 'endDate'));
 }
+
+public function review(Request $request, Meeting $meeting)
+    {
+        $request->validate([
+            'rating' => 'required|integer|min:1|max:5',
+            'feedback' => 'required|string',
+        ]);
+
+        // Create a new review for the meeting
+        $review = new Review();
+        $review->user_id = Auth::id();
+        $review->meeting_id = $meeting->id;
+        $review->rating = $request->input('rating');
+        $review->feedback = $request->input('feedback');
+        $review->save();
+
+        return redirect()->back()->with('success', 'Feedback submitted successfully.');
+    }
 
 
 }
