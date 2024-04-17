@@ -9,50 +9,62 @@
 
 
     <link rel="stylesheet" href="{{ asset('web/styles/sidebar.css')}}">
-    <link rel="stylesheet" href="{{ asset('web/styles/announce.css')}}">
-
 
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" type="image/x-icon" href="{{ asset('web/assets/logo1.jpg')}}">
+    <title>SKillSwap|Profile</title>
     <style>
-        .announcement-container {
-            margin-bottom: 20px;
-            padding: 15px;
-            border-radius: 8px;
-            background-color: #f0f0f0;
-        }
-
-        .announcement-title {
-            font-size: 18px;
-            font-weight: bold;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
             color: #333;
         }
 
-        .announcement-content {
-            margin-top: 5px;
-            font-size: 14px;
-            color: #666;
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            font-family: fangsong;
+            color: brown;
         }
 
-        .new-label {
-            background-color: #ffcc00;
-            color: #000;
-            padding: 2px 5px;
-            border-radius: 3px;
-            animation: pulse 1.5s infinite;
+        /* Container styles */
+        .container1 {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
-        @keyframes pulse {
-            0% {
-                background-color: #ffcc00;
-            }
+        /* Feedback list styles */
+        .feedback-list {
+            list-style-type: none;
+            padding: 0;
+        }
 
-            50% {
-                background-color: #ff6600;
-            }
+        /* Feedback item styles */
+        .feedback-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
 
-            100% {
-                background-color: #ffcc00;
-            }
+        /* Feedback info styles */
+        .feedback-info {
+            margin-bottom: 10px;
+        }
+
+        .feedback-info strong {
+            font-weight: bold;
+        }
+
+        /* Feedback message styles */
+        .feedback-message {
+            font-style: italic;
+            color: #555;
         }
     </style>
 </head>
@@ -67,7 +79,7 @@
 
                 <div class="text logo-text">
                     <span class="name">SkillSwap</span>
-                    <span class="profession">User</span>
+                    <span class="profession">Creator</span>
                 </div>
             </div>
 
@@ -84,21 +96,21 @@
 
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="{{ route('user.interest.index') }}">
+                        <a href="{{ route('user.dash') }}">
                             <i class='bx bx-home-alt icon'></i>
                             <span class="text nav-text">Dashboard</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="{{ route('user.skills.index') }}">
-                            <i class='bx bx-search icon'></i>
-                            <span class="text nav-text">Find Expert</span>
+                        <a href="{{ route('profile.show') }}">
+                            <i class='bx bx-link bx-rotate-90-alt icon'></i>
+                            <span class="text nav-text">Manage Meet</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="{{ route('user.myBookedMeetings') }}">
                             <i class='bx bx-pie-chart-alt icon'></i>
                             <span class="text nav-text">My Booking</span>
                         </a>
@@ -112,33 +124,37 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="{{ route('file-list.index') }}">
+                        <a href="{{ route('upload-form') }}">
                             <i class='bx bx-file-find bx-rotate-90-alt icon'></i>
-                            <span class="text nav-text">Resources</span>
+                            <span class="text nav-text">Upload Resource</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="{{ route('feedback.create') }}">
-                            <i class='bx bx-comment-edit bx-rotate-90-alt icon'></i>
-                            <span class="text nav-text">Request Source</span>
+                        <a href="{{ route('reports.index') }}">
+
+                            <i class='bx bxs-report bx-rotate-90-alt icon'></i>
+                            <span class="text nav-text">My Reports</span>
                         </a>
                     </li>
 
-                    <li class="nav-link">
-                        <a href="{{ route('announcements.without.delete') }}" style="background-color: #695CFE; border-radius: 5px;">
-                            <i class='bx bx-notification bx-rotate-90-alt icon' style="color: white;"></i>
-                            <span class="text nav-text" style="color: white;">Announcements</span>
+                    <li class="nav-link" style="background-color: #695CFE; border-radius: 5px;">
+                        <a href="{{ route('user-feedbacks.index') }}">
+
+                            <i class='bx bx-wink-smile bx-rotate-90-alt icon' style="color: white;"></i>
+                            <span class="text nav-text" style="color: white;">My Feedbacks</span>
                         </a>
                     </li>
 
+
                     <li class="nav-link">
-                        <a href="{{ route('user.details') }}">
+                        <a href="{{ route('creator.details') }}">
 
                             <i class='bx bx-user-circle bx-rotate-90-alt icon'></i>
                             <span class="text nav-text">My Profile</span>
                         </a>
                     </li>
+
 
                 </ul>
             </div>
@@ -165,33 +181,35 @@
                 </li>
 
 
+
             </div>
         </div>
 
     </nav>
 
     <section class="home">
-        <div class="text">
-            <h2>Annoucements</h2>
-
-            @if($announcements->isEmpty())
-            <p>No announcements to display.</p>
+        <div class="container1">
+            <h1>Feedbacks Given to You</h1>
+            @if ($feedbacks->isEmpty())
+            <p>No feedbacks Given.</p>
             @else
-            @foreach($announcements as $announcement)
-            <div class="announcement-container">
-                <h3 class="announcement-title">{{ $announcement->title }}</h3>
-                <p class="announcement-content">{{ $announcement->content }}</p>
-                @if($announcement->created_at->gt(now()->subDay()))
-                <span class="new-label">New</span>
-                @endif
-            </div>
-            @endforeach
+            <ul class="feedback-list">
+                @foreach ($feedbacks as $feedback)
+                <li class="feedback-item">
+                    <div class="feedback-info">
+                        <strong>From:</strong> {{ $feedback->meeting->bookedUser->name }}<br>
+                        <strong>Rating:</strong> {{ $feedback->rating }} stars<br>
+                    </div>
+                    <div class="feedback-message">
+                        <strong>Feedback:</strong> {{ $feedback->feedback }}
+                    </div>
+                </li>
+                @endforeach
+            </ul>
             @endif
-
-
-
-
         </div>
+
+
     </section>
 
     <script>

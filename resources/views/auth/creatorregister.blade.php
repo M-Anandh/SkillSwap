@@ -28,8 +28,9 @@
 
                         <div class="input-field">
                             <label>Date of Birth</label>
-                            <input type="date" placeholder="Enter birth date" name="dob" required>
+                            <input type="date" placeholder="Enter birth date" name="dob" required max="<?php echo date('Y-m-d', strtotime('-1 day')); ?>">
                         </div>
+
 
                         <div class="input-field">
                             <label>Email</label>
@@ -109,7 +110,7 @@
 
             <div class="form second">
                 <div class="details address">
-                    
+
                     <span class="title">Skills</span>
                     <br>
 
@@ -132,7 +133,7 @@
 
                     <div class="content">
                         <label for="skills-list">Enter Skills (comma-separated):</label>
-                        <input type="text" name="skills" id="skills-list" spellcheck="false" placeholder="Add a skill..." required style="width: 300px;  height:30px;" >
+                        <input type="text" name="skills" id="skills-list" spellcheck="false" placeholder="Add a skill..." required style="width: 300px;  height:30px;">
                     </div>
 
 
@@ -272,7 +273,7 @@
         }
     </script>
 
-<script>
+    <script>
         function validateMeetLink() {
             var meetLinkInput = document.getElementById('meetLink').value;
 

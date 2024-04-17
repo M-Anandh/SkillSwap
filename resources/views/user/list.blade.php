@@ -39,7 +39,7 @@
         }
 
         .down {
-            background-color: black;
+            background-color: #2d1aff;
             border: none;
             color: white;
             padding: 12px 24px;
@@ -70,7 +70,7 @@
         }
 
         .files{
-            background-color: whitesmoke;
+            background-color: none;
         }
     </style>
     <link rel="icon" type="image/x-icon" href="{{ asset('web/assets/logo1.jpg')}}">
@@ -196,7 +196,7 @@
         <div class="list">
             @foreach($files->sortBy('original_name') as $file)
             <div style="border: 1px solid #ddd; padding: 10px; margin-bottom: 10px;" class="files">
-                <p style="margin: 0; padding-bottom: 5px; font-weight: bold;">File Name: {{ $file->original_name }}</p>
+                <p style="margin: 0; padding-bottom: 5px; font-weight: bold;color:  #8B0000;">File Name: {{ $file->original_name }}</p>
                 <p style="margin: 0; padding-bottom: 10px;">Description: {{ $file->description }}</p>
                 <div class="download-container">
                     <a href="{{ route('files.download', ['id' => $file->id]) }}"><button class="down">

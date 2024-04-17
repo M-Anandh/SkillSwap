@@ -225,4 +225,15 @@ Route::get('/userannounce', [AnnouncementController::class, 'indexWithoutDelete'
         Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
         Route::delete('/reports/{report}', [ReportController::class, 'destroy'])->name('reports.destroy');
     });
+
+
+    use App\Http\Controllers\UserFeedbackController;
+
+    Route::middleware(['auth'])->group(function () {
+        Route::get('/feedback', [UserFeedbackController::class, 'index'])->name('user-feedbacks.index');
+        Route::get('/userfeedback', [UserFeedbackController::class, 'userpart'])->name('myfeedbackto');
+        Route::get('/feedback/{review}/edit', [UserFeedbackController::class, 'edit'])->name('feedback.edit');
+        Route::put('/feedback/{review}', [UserFeedbackController::class, 'update'])->name('feedback.update');
+        Route::delete('/feedback/{review}', [UserFeedbackController::class, 'destroy'])->name('feedback.destroys');
+    });
     

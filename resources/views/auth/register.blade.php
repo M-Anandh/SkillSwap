@@ -26,7 +26,7 @@
 
                         <div class="input-field">
                             <label>Date of Birth</label>
-                            <input type="date" placeholder="Enter birth date" name="dob" value="{{ old('dob') }}" required>
+                            <input type="date" placeholder="Enter birth date" name="dob" required max="<?php echo date('Y-m-d', strtotime('-1 day')); ?>">
                         </div>
 
                         <div class="input-field">

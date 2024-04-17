@@ -18,4 +18,8 @@ class Meeting extends Model
     {
         return $this->belongsTo(User::class, 'booked_user_id');
     }
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
 }

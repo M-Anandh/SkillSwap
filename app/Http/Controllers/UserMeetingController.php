@@ -210,22 +210,27 @@ public function allMeetings(Request $request)
 }
 
 public function review(Request $request, Meeting $meeting)
-    {
-        $request->validate([
-            'rating' => 'required|integer|min:1|max:5',
-            'feedback' => 'required|string',
-        ]);
+{
+    $request->validate([
+        'rating' => 'required|integer|min:1|max:5',
+        'feedback' => 'required|string',
+    ]);
 
-        // Create a new review for the meeting
-        $review = new Review();
-        $review->user_id = Auth::id();
-        $review->meeting_id = $meeting->id;
-        $review->rating = $request->input('rating');
-        $review->feedback = $request->input('feedback');
-        $review->save();
-
-        return redirect()->back()->with('success', 'Feedback submitted successfully.');
+    // Check if the logged-in user has already submitted a review for this meeting
+    if ($request->user()->reviews()->where('meeting_id', $meeting->id)->exists()) {
+        return redirect()->back()->with('error', 'You have already submitted a review for this meeting.');
     }
+
+    // Create a new review for the meeting
+    $review = new Review();
+    $review->user_id = $request->user()->id;
+    $review->meeting_id = $meeting->id;
+    $review->rating = $request->input('rating');
+    $review->feedback = $request->input('feedback');
+    $review->save();
+
+    return redirect()->back()->with('success', 'Feedback submitted successfully.');
+}
 
 
 }

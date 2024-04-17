@@ -87,13 +87,82 @@
             background-color: #ffffff;
         }
 
-        tr:hover {
-            background-color: #695CFE;
-            color: #ffffff;
-        }
+
 
         table.animate {
             opacity: 1;
+        }
+
+        .rating-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .star-rating {
+            display: flex;
+            align-items: center;
+        }
+
+        .star-rating input[type="radio"] {
+            display: none;
+        }
+
+        .star-rating label {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .star-rating label:before {
+            content: '\2605';
+            /* Unicode character for a star */
+            margin: 5px;
+            color: #ddd;
+        }
+
+        .star-rating input[type="radio"]:checked+label:before {
+            color: #ffc107;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .star-rating {
+            display: flex;
+            align-items: center;
+        }
+
+        .star-rating input[type="radio"] {
+            display: none;
+        }
+
+        .star-rating label {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .star-rating label:before {
+            content: '\2605';
+            /* Unicode character for a star */
+            margin: 5px;
+            color: #ddd;
+            /* Default color of the star */
+        }
+
+        .star-rating input[type="radio"]:checked~label:before {
+            color: #ffc107;
+            /* Color of the selected star */
+        }
+
+        .star-rating input[type="radio"]:checked~label:nth-of-type(n+1):before {
+            color: #ffc107;
+            /* Color all stars if the selected rating is 5 */
         }
     </style>
 
@@ -269,6 +338,39 @@
                                 <button type="submit" class="btn btn-danger">Cancel Meeting</button>
                             </form>
                             @endif
+
+                            @if ($meeting->completed)
+                            @if (!$meeting->reviews()->where('user_id', Auth::id())->exists())
+                            <form method="post" action="{{ route('user.meeting.review', $meeting->id) }}">
+                                @csrf
+                                <div class="form-group">
+                                    <div class="rating-container">
+                                        <label for="rating">Rating:</label>
+                                        <div class="star-rating">
+                                            <input type="radio" id="star1" name="rating" value="1">
+                                            <input type="radio" id="star2" name="rating" value="2">
+                                            <input type="radio" id="star3" name="rating" value="3">
+                                            <input type="radio" id="star4" name="rating" value="4">
+                                            <input type="radio" id="star5" name="rating" value="5">
+                                            <label for="star1" title="1 star"></label>
+                                            <label for="star2" title="2 stars"></label>
+                                            <label for="star3" title="3 stars"></label>
+                                            <label for="star4" title="4 stars"></label>
+                                            <label for="star5" title="5 stars"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="feedback">Feedback:</label>
+                                    <textarea name="feedback" id="feedback" cols="100" rows="2" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-success">Submit Feedback</button>
+                            </form>
+                            @else
+                            <p>You have already provided feedback for this meeting.</p>
+                            @endif
+                            @endif
+
                         </td>
                     </tr>
                     @endforeach

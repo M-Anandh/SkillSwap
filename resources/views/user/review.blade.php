@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -9,81 +10,53 @@
 
     <link rel="stylesheet" href="{{ asset('web/styles/sidebar.css')}}">
 
-    <link rel="stylesheet" href="sidebar.css">
-    <link rel="stylesheet" href="File.css">
 
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="icon" type="image/x-icon" href="{{ asset('web/assets/logo1.jpg')}}">
-    <title>SKillSwap|UploadFiles</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
+        
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            font-family: fangsong;
+            color: brown;
+        }
+
+        /* Container styles */
+        .container1 {
+            max-width: 800px;
+            margin: 0 auto;
             padding: 20px;
         }
 
-        h2 {
-            color: #333;
+        /* Feedback list styles */
+        .feedback-list {
+            list-style-type: none;
+            padding: 0;
         }
 
-        form {
+        /* Feedback item styles */
+        .feedback-item {
             margin-bottom: 20px;
-        }
-
-        label {
-            font-weight: bold;
-            margin-bottom: 5px;
-            display: block;
-        }
-
-        input[type="text"],
-        textarea {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            box-sizing: border-box;
-        }
-
-        input[type="submit"] {
-            background-color: #4caf50;
-            color: #fff;
-            padding: 10px 15px;
-            border: none;
-            cursor: pointer;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-
-        .announcement {
-            background-color: #fff;
             padding: 15px;
-            margin-bottom: 20px;
+            border: 1px solid #ccc;
             border-radius: 5px;
+            background-color: #f9f9f9;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        .announcement h2 {
-            color: #333;
+        /* Feedback info styles */
+        .feedback-info {
             margin-bottom: 10px;
         }
 
-        .announcement p {
+        .feedback-info strong {
+            font-weight: bold;
+        }
+
+        /* Feedback message styles */
+        .feedback-message {
+            font-style: italic;
             color: #555;
-        }
-
-        .delete-btn {
-            color: #fff;
-            background-color: #d9534f;
-            padding: 5px 10px;
-            text-decoration: none;
-            border-radius: 3px;
-        }
-
-        .delete-btn:hover {
-            background-color: #c9302c;
         }
     </style>
 </head>
@@ -93,12 +66,12 @@
         <header>
             <div class="image-text">
                 <span class="image">
-                    <img src="assets/logo1.jpg" alt="">
+                    <img src="{{ asset('web/assets/logo.jpg')}}" alt="">
                 </span>
 
                 <div class="text logo-text">
                     <span class="name">SkillSwap</span>
-                    <span class="profession">Creator</span>
+                    <span class="profession">User</span>
                 </div>
             </div>
 
@@ -115,21 +88,21 @@
 
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="{{ route('user.interest.index') }}">
                             <i class='bx bx-home-alt icon'></i>
                             <span class="text nav-text">Dashboard</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-link bx-rotate-90-alt icon'></i>
-                            <span class="text nav-text">Manage Meet</span>
+                        <a href="{{ route('user.skills.index') }}">
+                            <i class='bx bx-search icon'></i>
+                            <span class="text nav-text">Find Expert</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="{{ route('user.myBookedMeetings') }}">
+                        <a href="#">
                             <i class='bx bx-pie-chart-alt icon'></i>
                             <span class="text nav-text">My Booking</span>
                         </a>
@@ -143,16 +116,37 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="{{ route('upload-form') }}">
+                        <a href="{{ route('file-list.index') }}">
                             <i class='bx bx-file-find bx-rotate-90-alt icon'></i>
-                            <span class="text nav-text">Upload Resources</span>
+                            <span class="text nav-text">Resources</span>
                         </a>
                     </li>
 
-                   
+                    <li class="nav-link">
+                        <a href="{{ route('feedback.create') }}">
+                            <i class='bx bx-comment-edit bx-rotate-90-alt icon'></i>
+                            <span class="text nav-text">Request Source</span>
+                        </a>
+                    </li>
 
                     <li class="nav-link">
-                        <a href="{{ route('creator.details') }}">
+                        <a href="{{ route('announcements.without.delete') }}" >
+                            <i class='bx bx-notification bx-rotate-90-alt icon' ></i>
+                            <span class="text nav-text" >Announcements</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link" style="background-color: #695CFE; border-radius: 5px;">
+                        <a href="{{ route('user-feedbacks.index') }}">
+
+                            <i class='bx bx-wink-smile bx-rotate-90-alt icon' style="color: white;"></i>
+                            <span class="text nav-text" style="color: white;">My Feedbacks</span>
+                        </a>
+                    </li>
+
+
+                    <li class="nav-link">
+                        <a href="{{ route('user.details') }}">
 
                             <i class='bx bx-user-circle bx-rotate-90-alt icon'></i>
                             <span class="text nav-text">My Profile</span>
@@ -171,7 +165,7 @@
 
                     <script>
                         document.getElementById('logout-link').addEventListener('click', function(event) {
-                            event.preventDefault(); 
+                            event.preventDefault();
 
                             document.getElementById('logout-form').submit();
                         });
@@ -183,7 +177,6 @@
 
                 </li>
 
-            
 
             </div>
         </div>
@@ -191,53 +184,36 @@
     </nav>
 
     <section class="home">
-        <div class="text" style="padding: 0px;">
-        <h2>Add Announcement</h2>
-    <form method="post" action="">
-    @csrf
-        <label for="title">Title:</label>
-        <input type="text" name="title" required><br>
-
-        <label for="content">Content:</label>
-        <textarea name="content" required></textarea><br>
-
-        <input type="submit" value="Add Announcement">
-    </form>
-    <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "skillchat";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $title = $_POST["title"];
-    $content = $_POST["content"];
-
-    $sql = "INSERT INTO announcements (title, content) VALUES ('$title', '$content')";
-
-    if ($conn->query($sql) === TRUE) {
-        echo "<script>alert('Announcement added successfully.')</script>";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-}
-
-
-$conn->close();
-?>
+    <div class="container1">
+    <h1>Feedbacks Given by You</h1>
+    @if ($feedbacks->isEmpty())
+        <p>No feedbacks Given.</p>
+    @else
+        <ul class="feedback-list">
+            @foreach ($feedbacks as $feedback)
+                <li class="feedback-item">
+                    <div class="feedback-info">
+                        <strong>From:</strong> {{ $feedback->meeting->bookedUser->name }}<br>
+                        <strong>Rating:</strong> {{ $feedback->rating }} stars<br>
+                    </div>
+                    <div class="feedback-message">
+                        <strong>Feedback:</strong> {{ $feedback->feedback }}<br>
+                        <form action="{{ route('feedback.edit', $feedback->id) }}" method="GET">
+                            @csrf
+                            <button type="submit">Edit</button>
+                        </form>
+                        <form action="{{ route('feedback.delete', $feedback->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
+                </li>
+            @endforeach
+        </ul>
+    @endif
 </div>
 
-
-
-
-
-        </div>
     </section>
 
     <script>
@@ -268,8 +244,6 @@ $conn->close();
             }
         });
     </script>
-
-
 
 </body>
 
