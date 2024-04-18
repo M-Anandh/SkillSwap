@@ -31,8 +31,10 @@
         }
 
         .col-md-3 {
-            width: 25%;
+            width: 20%;
             float: left;
+            border: 1px solid black;
+            margin: 20px;
         }
 
         .col-md-6 {
@@ -45,6 +47,12 @@
             content: "";
             display: table;
             clear: both;
+        }
+        .col-md-3 a{
+            text-decoration: none;
+            padding-left: 30px;
+            color: white;
+           
         }
     </style>
 </head>
@@ -169,20 +177,28 @@
         <div class="container">
 
         <div class="row" style="padding-top: 20px;">
-            <div class="col-md-3">
-                <h3>Total Number of Users:   {{ $totalType0Users }}</h3>
+            <div class="col-md-3" style="background-color:red; color:white;">
+                <h3> Number of  &nbsp;&nbsp;&nbsp; Users:  {{ $totalType0Users }}</h3>
+                <br>
+                <a href="/manage/users">More Info<i class='bx bx-right-arrow-alt'></i></a>
             </div>
 
-            <div class="col-md-3">
-                <h3>Total Number of Creators : {{ $totalType2Users }}</h3>
+            <div class="col-md-3" style="background-color:darkgreen; color:white;">
+                <h3>Number of Creators : {{ $totalType2Users }}</h3>
+                <br>
+                <a href="/manage/users">More Info<i class='bx bx-right-arrow-alt'></i></a>
             </div>
 
-            <div class="col-md-3">
-                <h3>Total Number of Meetings: {{ $totalMeetings }}</h3>
+            <div class="col-md-3" style="background-color:#FFC30F; color:white;">
+                <h3> Number of Meetings: {{ $totalMeetings }}</h3>
+                <br>
+                <a href="/all-meetings">More Info<i class='bx bx-right-arrow-alt'></i></a>
             </div>
 
-            <div class="col-md-3">
-                <h3>Total Number of Files Uploaded: {{ $totalFiles }}</h3>
+            <div class="col-md-3" style="background-color:#6495ED; color:white;">
+                <h3> Number of Resource: {{ $totalFiles }}</h3>
+                <br>
+                <a href="/admin/showform">More Info<i class='bx bx-right-arrow-alt'></i></a>
             </div>
         </div>
 
@@ -245,32 +261,36 @@ modeSwitch.addEventListener("click" , () =>{
         var ctx3 = document.getElementById('fileUploadsChart').getContext('2d');
 
         var data0 = {
-            labels: ["Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6", "Day 7"],
-            datasets: [{
-                label: 'Users',
-                data: [{{ $type0UsersLast7Days }}],
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 1
-            }]
-        };
+    labels: ["Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6", "Day 7"],
+    datasets: [{
+        label: 'Users',
+        data: [{{ $type0UsersLast7Days }}],
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 1,
+        fill: true // To fill the area under the line
+    }]
+};
 
-        var options0 = {
-            scales: {
-                y: {
-                    beginAtZero: false,
-                    suggestedMin: 1,
-                    suggestedMax: 3,
-                    stepSize: 1
-                }
+var options0 = {
+    scales: {
+        y: {
+            beginAtZero: true, // Start the y-axis from zero
+            stepSize: 1, // Set step size to 1 to display whole numbers
+            grid: {
+                display: true // Display gridlines
             }
-        };
+        }
+    }
+};
 
-        var type0UsersChart = new Chart(ctx0, {
-            type: 'line',
-            data: data0,
-            options: options0
-        });
+var type0UsersChart = new Chart(ctx0, {
+    type: 'line',
+    data: data0,
+    options: options0
+});
+
+
 
         var data1 = {
             labels: ["Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6", "Day 7"],

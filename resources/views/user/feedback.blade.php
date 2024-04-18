@@ -209,7 +209,7 @@
     <label for="message">Message:</label>
     <textarea name="message" rows="4" required></textarea>
 
-    <button type="submit">Submit Feedback</button>
+    <button type="submit">Submit Request</button>
 </form>
 
 

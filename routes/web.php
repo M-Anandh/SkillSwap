@@ -230,7 +230,7 @@ Route::get('/userannounce', [AnnouncementController::class, 'indexWithoutDelete'
     use App\Http\Controllers\UserFeedbackController;
 
     Route::middleware(['auth'])->group(function () {
-        Route::get('/feedback', [UserFeedbackController::class, 'index'])->name('user-feedbacks.index');
+        Route::get('/feedbackss', [UserFeedbackController::class, 'index'])->name('user-feedbacks.index');
         Route::get('/userfeedback', [UserFeedbackController::class, 'userpart'])->name('myfeedbackto');
         Route::get('/feedback/{review}/edit', [UserFeedbackController::class, 'edit'])->name('feedback.edit');
         Route::put('/feedback/{review}', [UserFeedbackController::class, 'update'])->name('feedback.update');
