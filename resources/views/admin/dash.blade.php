@@ -173,7 +173,7 @@
     </nav>
 
     <section class="home">
-        <div class="text1">
+        <div class="text1" >
         <div class="container">
 
         <div class="row" style="padding-top: 20px;">
@@ -261,64 +261,63 @@ modeSwitch.addEventListener("click" , () =>{
         var ctx3 = document.getElementById('fileUploadsChart').getContext('2d');
 
         var data0 = {
-    labels: ["Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6", "Day 7"],
-    datasets: [{
-        label: 'Users',
-        data: [{{ $type0UsersLast7Days }}],
-        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-        borderColor: 'rgba(75, 192, 192, 1)',
-        borderWidth: 1,
-        fill: true // To fill the area under the line
-    }]
-};
+        labels: {!! json_encode(array_keys($type0UsersLast7Days)) !!},
+        datasets: [{
+            label: 'Type 0 Users',
+            data: {!! json_encode(array_values($type0UsersLast7Days)) !!},
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1,
+            fill: true // To fill the area under the line
+        }]
+    };
 
-var options0 = {
-    scales: {
-        y: {
-            beginAtZero: true, // Start the y-axis from zero
-            stepSize: 1, // Set step size to 1 to display whole numbers
-            grid: {
-                display: true // Display gridlines
-            }
-        }
-    }
-};
-
-var type0UsersChart = new Chart(ctx0, {
-    type: 'line',
-    data: data0,
-    options: options0
-});
-
-
-
-        var data1 = {
-            labels: ["Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6", "Day 7"],
-            datasets: [{
-                label: 'Creators',
-                data: [{{ $type2UsersLast7Days }}],
-                backgroundColor: 'rgba(255, 44, 187, 0.5)',
-                borderColor: 'rgba(255, 99, 132, 1)',
-                borderWidth: 1
-            }]
-        };
-
-        var options1 = {
-            scales: {
-                y: {
-                    beginAtZero: false,
-                    suggestedMin: 1,
-                    suggestedMax: 3,
-                    stepSize: 1
+    var options0 = {
+        scales: {
+            y: {
+                beginAtZero: true, // Start the y-axis from zero
+                stepSize: 1, // Set step size to 1 to display whole numbers
+                grid: {
+                    display: true // Display gridlines
                 }
             }
-        };
+        }
+    };
 
-        var type2UsersChart = new Chart(ctx1, {
-            type: 'line',
-            data: data1,
-            options: options1
-        });
+    var type0UsersChart = new Chart(ctx0, {
+        type: 'line',
+        data: data0,
+        options: options0
+    });
+
+
+    var data1 = {
+        labels: {!! json_encode(array_keys($type2UsersLast7Days)) !!},
+        datasets: [{
+            label: 'Type 2 Users',
+            data: {!! json_encode(array_values($type2UsersLast7Days)) !!},
+            backgroundColor: 'rgba(255, 44, 187, 0.5)',
+            borderColor: 'rgba(255, 99, 132, 1)',
+            borderWidth: 1
+        }]
+    };
+
+    var options1 = {
+        scales: {
+            y: {
+                beginAtZero: false,
+                suggestedMin: 1,
+                suggestedMax: 3,
+                stepSize: 1
+            }
+        }
+    };
+
+    var type2UsersChart = new Chart(ctx1, {
+        type: 'line',
+        data: data1,
+        options: options1
+    });
 
         var data2 = {
             labels: {!! json_encode($meetingDates) !!},
@@ -343,38 +342,38 @@ var type0UsersChart = new Chart(ctx0, {
         };
 
         var meetingsChart = new Chart(ctx2, {
-            type: 'line',
+            type: 'bar',
             data: data2,
             options: options2
         });
 
         var data3 = {
-            labels: ["Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6", "Day 7"],
-            datasets: [{
-                label: 'File Uploads',
-                data: [{{ $fileUploadsLast7Days }}],
-                backgroundColor: 'rgba(255, 206, 86, 0.2)',
-                borderColor: 'rgba(255, 206, 86, 1)',
-                borderWidth: 1
-            }]
-        };
+        labels: {!! json_encode(array_keys($fileUploadsLast7Days)) !!},
+        datasets: [{
+            label: 'File Uploads',
+            data: {!! json_encode(array_values($fileUploadsLast7Days)) !!},
+            backgroundColor: 'rgba(255, 206, 86, 0.2)',
+            borderColor: 'rgba(255, 206, 86, 1)',
+            borderWidth: 1
+        }]
+    };
 
-        var options3 = {
-            scales: {
-                y: {
-                    beginAtZero: false,
-                    suggestedMin: 1,
-                    suggestedMax: 3,
-                    stepSize: 1
-                }
+    var options3 = {
+        scales: {
+            y: {
+                beginAtZero: false,
+                suggestedMin: 1,
+                suggestedMax: 3,
+                stepSize: 1
             }
-        };
+        }
+    };
 
-        var fileUploadsChart = new Chart(ctx3, {
-            type: 'line',
-            data: data3,
-            options: options3
-        });
+    var fileUploadsChart = new Chart(ctx3, {
+        type: 'line',
+        data: data3,
+        options: options3
+    });
     </script>
 
 </body>

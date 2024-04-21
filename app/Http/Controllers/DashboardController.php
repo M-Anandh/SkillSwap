@@ -45,6 +45,39 @@ class DashboardController extends Controller
         })->toArray();
         $meetingCounts = $meetingsLast7Days->pluck('id')->toArray();
 
+                $type2UsersLast7Days = User::where('type', 2)
+            ->where('created_at', '>=', $last7Days)
+            ->get(['created_at'])
+            ->groupBy(function($date) {
+                return Carbon::parse($date->created_at)->format('M d');
+            })
+            ->map(function ($item, $key) {
+                return count($item);
+            })
+            ->toArray();
+
+            $type0UsersLast7Days = User::where('type', 0)
+            ->where('created_at', '>=', $last7Days)
+            ->get(['created_at'])
+            ->groupBy(function($date) {
+                return Carbon::parse($date->created_at)->format('M d');
+            })
+            ->map(function ($item, $key) {
+                return count($item);
+            })
+            ->toArray();
+
+            $fileUploadsLast7Days = UploadedFile::where('created_at', '>=', $last7Days)
+            ->get(['created_at'])
+            ->groupBy(function($date) {
+                return Carbon::parse($date->created_at)->format('M d');
+            })
+            ->map(function ($item, $key) {
+                return count($item);
+            })
+            ->toArray();
+
+
         return view('admin.dash', compact(
             'totalType0Users',
             'totalType2Users',

@@ -94,76 +94,58 @@
         }
 
         .rating-container {
-            display: flex;
-            align-items: center;
-        }
+    display: flex;
+    align-items: center;
+}
 
-        .star-rating {
-            display: flex;
-            align-items: center;
-        }
+.star-rating {
+    display: flex;
+    align-items: center;
+}
 
-        .star-rating input[type="radio"] {
-            display: none;
-        }
+.star-rating input[type="radio"] {
+    display: none;
+}
 
-        .star-rating label {
-            font-size: 24px;
-            cursor: pointer;
-        }
+.star-rating label {
+    font-size: 24px;
+    cursor: pointer;
+}
 
-        .star-rating label:before {
-            content: '\2605';
-            /* Unicode character for a star */
-            margin: 5px;
-            color: #ddd;
-        }
+.star-rating label:before {
+    content: '\2605';
+    /* Unicode character for a star */
+    margin: 5px;
+    color: #ddd;
+    /* Default color of the star */
+}
 
-        .star-rating input[type="radio"]:checked+label:before {
-            color: #ffc107;
-        }
+.star-rating input[type="radio"]:checked+label:before {
+    color: #ffc107;
+    /* Color of the selected star */
+}
 
-        .form-group {
-            margin-bottom: 15px;
-        }
+.star-rating input[type="radio"]:checked~label:before {
+    color: #ddd;
+    /* Color all stars if the selected rating is 5 */
+}
 
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
+.star-rating input[type="radio"]:checked~label:nth-of-type(-n+5):before {
+    color: #ffc107;
+    /* Color only the selected star and stars before it */
+}
 
-        .star-rating {
-            display: flex;
-            align-items: center;
-        }
+.form-group {
+    margin-bottom: 15px;
+}
 
-        .star-rating input[type="radio"] {
-            display: none;
-        }
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
 
-        .star-rating label {
-            font-size: 24px;
-            cursor: pointer;
-        }
 
-        .star-rating label:before {
-            content: '\2605';
-            /* Unicode character for a star */
-            margin: 5px;
-            color: #ddd;
-            /* Default color of the star */
-        }
-
-        .star-rating input[type="radio"]:checked~label:before {
-            color: #ffc107;
-            /* Color of the selected star */
-        }
-
-        .star-rating input[type="radio"]:checked~label:nth-of-type(n+1):before {
-            color: #ffc107;
-            /* Color all stars if the selected rating is 5 */
-        }
     </style>
 
     <title>SKillSwap|HOME</title>

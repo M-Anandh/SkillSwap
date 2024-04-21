@@ -53,9 +53,7 @@
         cursor: pointer;
     }
 
-    button:hover {
-        background-color: #45a049;
-    }
+   
 
     p {
         margin-top: 20px;
@@ -73,6 +71,14 @@
         .bottom-content span:hover{
             color: white;
         }
+
+    .accept{
+        background-color: lime;
+    }
+    .reject{
+        margin-top:10px ;
+        background-color: red;
+    }
 
     </style>
         <link rel="icon" type="image/x-icon" href="{{ asset('web/assets/logo1.jpg')}}">
@@ -225,7 +231,12 @@
                             <form method='post' action="{{ route('admin.creatorapproval.approve', ['userId' => $user->id]) }}">
                                 @csrf
                                 @method('post')
-                                <button type='submit'>Approve</button>
+                                <button type='submit' class="accept"><i class='bx bxs-user-check' ></i></button>
+                            </form>
+                            <form method='post' action="{{ route('admin.creatorapproval.reject', ['userId' => $user->id]) }}">
+                                @csrf
+                                @method('post')
+                                <button type='submit' class="reject"><i class='bx bxs-user-x' ></i></button>
                             </form>
                         </td>
                     </tr>

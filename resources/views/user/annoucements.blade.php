@@ -172,7 +172,7 @@
 
     <section class="home">
         <div class="text">
-            <h2>Annoucements</h2>
+            <h2 style="color: #ff6600; padding-bottom:10px;">ANNOUNCEMENTS</h2>
 
             @if($announcements->isEmpty())
             <p>No announcements to display.</p>

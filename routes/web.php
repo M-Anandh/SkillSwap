@@ -137,6 +137,7 @@ use App\Http\Controllers\AdminUserController;
 
 Route::get('/admin/creatorapproval', [AdminUserController::class, 'index'])->name('admin.creatorapproval')->middleware('auth');
 Route::post('/admin/creatorapproval/approve/{userId}', [AdminUserController::class, 'approve'])->name('admin.creatorapproval.approve');
+Route::post('/admin/creatorapproval/{userId}/reject', [AdminUserController::class, 'reject'])->name('admin.creatorapproval.reject');
 
 
 use App\Http\Controllers\AdminFileController;
