@@ -1,5 +1,5 @@
 
-<p style="color: #3366ff;">Hello {{ $meeting->bookedUser->name }},</p>
+<p style="color: #3366ff;">Dear User,</p>
 
 <p>We're writing to inform you that your meeting has been successfully updated!</p>
 

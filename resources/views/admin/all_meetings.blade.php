@@ -242,7 +242,6 @@
 <table class="table">
     <thead>
         <tr>
-            <th>ID</th>
             <th>User</th>
             <th>Booked Creator</th>
             <th>Date and Time</th>
@@ -252,7 +251,6 @@
     <tbody>
         @foreach($meetings as $meeting)
             <tr>
-                <td>{{ $meeting->id }}</td>
                 <td>{{ $meeting->user->name }}</td>
                 <td>{{ $meeting->bookedUser->name }}</td>
                 <td>{{ $meeting->datetime }}</td>
